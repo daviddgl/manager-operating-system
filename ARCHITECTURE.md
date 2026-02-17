@@ -56,7 +56,7 @@ graph LR
     end
     
     subgraph Drivers["🟢 DRIVERS (Team-level)"]
-        D1["Team OS<br/>Squad & Capacity"]
+        D1["Team OS<br/>Squad, Capacity<br/>& Partner Teams"]
         D2["Player Cards<br/>Individual Specs"]
     end
     
@@ -160,17 +160,17 @@ This table shows the logic: what context does each command read, what data does 
 
 | Command | Reads from | Asks You For | Queries | Output |
 |---------|-----------|--------------|---------|--------|
-| `init_week` | KERNEL §8,9,12 + CONFIG §1 + DRIVERS §2,4,6 | Team availability, blockers | Jira sprint | Weekly plan + focus areas |
+| `init_week` | KERNEL §8,9,12 + CONFIG §1 + DRIVERS §2,4,6,7 | Team availability, blockers | Jira sprint | Weekly plan + focus areas |
 | `init_day` | PROCESSES §1 | Daily priorities | Jira board | Daily focus list + priorities |
 | `shutdown_day` | PROCESSES §1 + KERNEL §12 | Actual progress, blockers | — | Progress recap + patterns |
 | `shutdown_week` | PROCESSES §1 + KERNEL §12 | Week recap | Jira burndown | Week summary + learnings |
 | `prep_121 [name]` | KERNEL §2,5,6 + DRIVERS player card | Recent observations | — | 1:1 agenda + feedback prep |
 | `onboard [name]` | KERNEL §1,2 + DRIVERS team norms | New hire info | — | Onboarding checklist |
 | `prep_planning` | KERNEL §10 + DRIVERS §3,4 | Draft goals | Airtable roadmap | Planning framework + review |
-| `capacity_check` | DRIVERS §4 + KERNEL §3 | Sprint metrics | Jira | Capacity analysis + breach flags |
+| `capacity_check` | DRIVERS §2,4,7 + KERNEL §3 | Sprint metrics | Jira | Capacity analysis + breach flags |
 | `retro` | KERNEL §1,7 + DRIVERS §5 | Retrospective notes | — | Retro facilitator guide |
-| `stakeholder_request [desc]` | KERNEL §3 + DRIVERS §4 + PROCESSES §1 | Effort, requestor | Jira + Airtable | Decision + script for "no" |
-| `escalate` | KERNEL §3,8 + DRIVERS §4 | Problem + context | — | Escalation memo + talking points |
+| `stakeholder_request [desc]` | KERNEL §3 + DRIVERS §2,4,7 + PROCESSES §1 | Effort, requestor | Jira + Airtable | Decision + script for "no" |
+| `escalate` | KERNEL §3,8 + DRIVERS §4,7 | Problem + context | — | Escalation memo + talking points |
 | `quarterly_reset` | CONFIG + KERNEL + DRIVERS + PROCESSES | New strategy, team changes | — | New Q plan template |
 
 ---
@@ -262,7 +262,7 @@ graph TD
 **Translation:**
 - New job, same company? Update CONFIG only.
 - New company, same team? Update CONFIG.
-- New team, same company? Replace DRIVERS + PROCESSES.
+- New team, same company? Replace DRIVERS + PROCESSES. Note: Partner Teams (DRIVERS §7) includes a "Carries Over" flag—review which relationships survive to your new team.
 - Everything changes? You keep KERNEL + COMMANDS, rebuild everything else (but it's 10x faster because you have your playbook).
 
 ---

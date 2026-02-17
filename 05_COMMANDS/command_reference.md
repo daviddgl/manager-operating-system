@@ -33,7 +33,7 @@
 
 **OS Files to Read:**
 - `04_PROCESSES/tactical_plan.md` — §1 Roadmap (filter by this week's dates), §2 Risks
-- `03_DRIVERS/team_operating_system.md` — §2 Squad (capacity board), §4 Capacity Contract, §5 Rituals (which ones this week?), §6 Strategic Translation
+- `03_DRIVERS/team_operating_system.md` — §2 Squad (capacity board), §4 Capacity Contract, §5 Rituals (which ones this week?), §6 Strategic Translation, §7 Partner Teams (cross-team sync opportunities)
 - `02_CONFIG/company_strategy.md` — §1 North Star
 - `01_KERNEL/manager_operating_system.md` — §8 Managing Up (exec summary template), §9 Success Metrics, §12 Pressure Mode (baseline check)
 - `01_KERNEL/personal_dna.md` — Goals (Top 3 for 90 days)
@@ -422,7 +422,7 @@
 
 **OS Files to Read:**
 - `04_PROCESSES/tactical_plan.md` — §1 Roadmap (what's next), §2 Risks
-- `03_DRIVERS/team_operating_system.md` — §2 Squad (capacity + constraints), §4 Capacity Contract, §6 Strategic Translation (priority logic)
+- `03_DRIVERS/team_operating_system.md` — §2 Squad (capacity + constraints), §4 Capacity Contract, §6 Strategic Translation (priority logic), §7 Partner Teams (surface dependencies)
 - `02_CONFIG/company_strategy.md` — §1 North Star
 - `01_KERNEL/manager_decision_protocol.md` — §1 Hierarchy of Precedence, §3 New Task Loop
 - `01_KERNEL/manager_operating_system.md` — §10 Engineering Standards (Spec-Driven)
@@ -492,11 +492,10 @@
 **Purpose:** Calculate ratio and trigger Circuit Breaker if needed
 
 **OS Files to Read:**
-- `03_DRIVERS/team_operating_system.md` — §4 Capacity Contract (ratio + Circuit Breaker)
+- `03_DRIVERS/team_operating_system.md` — §4 Capacity Contract (ratio + Circuit Breaker), §2 Squad (bottleneck identification), §7 Partner Teams (cross-team work consuming capacity)
 - `01_KERNEL/manager_operating_system.md` — §3 Capacity Contract (negotiation script), §8 Managing Up (Solution Rule)
 - `04_PROCESSES/tactical_plan.md` — §1 Roadmap (what's at risk)
 - `01_KERNEL/manager_decision_protocol.md` — §2 Rule B (Conflict Function)
-- `03_DRIVERS/team_operating_system.md` — §2 Squad (bottleneck identification)
 
 **Ask User For:**
 - Current period data (ops ticket count vs feature ticket count, or hours)
@@ -605,7 +604,7 @@
 
 **OS Files to Read:**
 - `01_KERNEL/manager_decision_protocol.md` — §1 Hierarchy of Precedence (all 3 levels), §2 Interaction Rules, §3 New Task Loop, §4 Decision Speed
-- `03_DRIVERS/team_operating_system.md` — §4 Capacity Contract, §2 Squad
+- `03_DRIVERS/team_operating_system.md` — §4 Capacity Contract, §2 Squad, §7 Partner Teams (context for requesting team)
 - `02_CONFIG/company_strategy.md` — §1 North Star
 - `04_PROCESSES/tactical_plan.md` — §1 Roadmap (what gets displaced?)
 - `01_KERNEL/manager_operating_system.md` — §3 The "No" Logic
@@ -689,7 +688,7 @@
 **OS Files to Read:**
 - `01_KERNEL/manager_operating_system.md` — §3 The "No" Logic, §8 Managing Up (Solution Rule), §5 Leadership Mode
 - `01_KERNEL/manager_decision_protocol.md` — §0 Rule Zero, §1 Hierarchy of Precedence, §4 Decision Speed
-- `03_DRIVERS/team_operating_system.md` — §4 Capacity Contract (evidence)
+- `03_DRIVERS/team_operating_system.md` — §4 Capacity Contract (evidence), §7 Partner Teams (use defined escalation path)
 - `02_CONFIG/company_strategy.md` — §1 North Star
 - `01_KERNEL/personal_dna.md` — Constraints & Fears (conflict avoidance flag)
 
@@ -779,7 +778,9 @@ Which option should we proceed with?
 - [ ] Company OS: Check for updates
 
 ### 03_DRIVERS/ (update)
-- [ ] Team OS: Update Squad, rewrite §6 Strategic Translation
+- [ ] Team OS: Update Squad, rewrite §6 Strategic Translation, review §7 Partner Teams
+  - [ ] Mark "Carries Over: Yes" entries to keep across team changes
+  - [ ] Remove "Carries Over: No" entries from previous team
 - [ ] Player Cards: Update all §3 Growth Goals
 
 ### 04_PROCESSES/ (replace)

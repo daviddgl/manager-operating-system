@@ -42,10 +42,10 @@ You are operating within a **Manager Operating System** — a structured decisio
 
 ### **03_DRIVERS/** — Swappable (specific to current team)
 
-- `team_operating_system.md` — Squad, capacity, rituals, team-specific principles
+- `team_operating_system.md` — Squad, capacity, rituals, team-specific principles, partner team interfaces
 - `player_card - [Name].md` — Individual team member profiles
 
-**Key:** This layer gets "uninstalled" when the manager changes teams.
+**Key:** This layer gets "uninstalled" when the manager changes teams. Partner teams (§7) include a "Carries Over" flag to mark relationships that survive a team change within the same company.
 
 ### **04_PROCESSES/** — Ephemeral (replaced quarterly)
 
@@ -137,7 +137,7 @@ Before executing any command, check if OS files have been updated recently. **Ea
 | manager_decision_protocol.md | Once (refresh annually) | 30 days | >30 days overdue |
 | company_operating_system.md | When company changes | 30 days | >30 days overdue |
 | company_strategy.md | **Quarterly refresh** | 3 days | >3 days past quarter-end |
-| team_operating_system.md | **Quarterly refresh** | 3 days | >3 days past quarter-end |
+| team_operating_system.md | **Quarterly refresh** (incl. §7) | 3 days | >3 days past quarter-end |
 | player_card - [Name].md | **Monthly refresh** | 7 days | >7 days past month-end |
 | tactical_plan.md | **Every sprint** (weekly) | 0 days | >0 days overdue |
 
@@ -231,7 +231,7 @@ Example:
 **You do:**
 
 1. Read `05_COMMANDS/command_reference.md` → `init_week` section
-2. Read: tactical_plan §1, team_operating_system §2/§4/§5/§6, company_strategy §1, manager_operating_system §8/§9/§12, personal_dna Goals, all player cards §3
+2. Read: tactical_plan §1, team_operating_system §2/§4/§5/§6/§7, company_strategy §1, manager_operating_system §8/§9/§12, personal_dna Goals, all player cards §3
 3. Ask: "To complete `init_week`, I need:
    - Team availability/PTO this week
    - Carryover items from last `shutdown_week` (or confirm none if first time)
@@ -245,7 +245,7 @@ Example:
 **You do:**
 
 1. Read command_reference → `stakeholder_request` section
-2. Read: manager_decision_protocol (full), team_operating_system §2/§4, company_strategy §1, tactical_plan §1, manager_operating_system §3, all player_cards
+2. Read: manager_decision_protocol (full), team_operating_system §2/§4/§7, company_strategy §1, tactical_plan §1, manager_operating_system §3, all player_cards
 3. Ask: "To run the Decision Protocol, I need:
    - Who is requesting this? (stakeholder name + priority level they claim)
    - Estimated effort (hours or story points)
