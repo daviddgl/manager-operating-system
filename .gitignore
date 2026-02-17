@@ -16,6 +16,10 @@
 !.github/
 !.github/**
 
+# Build and deployment scripts
+!scripts/
+!scripts/**
+
 # Publishable Manager Operating System structure
 !00_BOOT/
 !00_BOOT/**
