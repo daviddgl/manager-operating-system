@@ -15,7 +15,7 @@ The repository follows an OS-layer metaphor with numbered folders:
 | `00_BOOT/` | System manual | Permanent | Architecture docs, onboarding, portability contract |
 | `01_KERNEL/` | Portable core | Permanent | Philosophy, decision protocols, Personal DNA — travels with the manager |
 | `02_CONFIG/` | Environment | Per-company | Company mission, values, strategy — inherited context |
-| `03_DRIVERS/` | Swappable | Per-team | Team OS, player cards — replaced when changing teams |
+| `03_DRIVERS/` | Swappable | Per-team | Team OS (squad, capacity, rituals, partner teams), player cards — replaced when changing teams |
 | `04_PROCESSES/` | Ephemeral | Per-quarter | Tactical plan, current roadmap — replaced quarterly |
 | `05_COMMANDS/` | Interface | Permanent | 14 named AI commands + system prompt |
 

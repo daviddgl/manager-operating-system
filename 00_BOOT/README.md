@@ -49,7 +49,8 @@ Prefer guided onboarding? Start with the root [SETUP_WIZARD.md](../SETUP_WIZARD.
 │  03_DRIVERS (Swappable — one per team)               │
 │  ┌───────────────────────────────────────────────┐   │
 │  │ team_operating_system      → Squad, Capacity,  │   │
-│  │                              Rituals           │   │
+│  │                              Rituals, Partner  │   │
+│  │                              Teams             │   │
 │  │ Player Cards               → Individual specs  │   │
 │  └───────────────────────────────────────────────┘   │
 ├─────────────────────────────────────────────────────┤
@@ -71,7 +72,7 @@ Quick lookup for all template files in your MOS:
 | [manager_decision_protocol.md](../01_KERNEL/manager_decision_protocol.md) | KERNEL | Once (refresh annually) | Conflict resolution logic, escalation matrix, Rule Zero | `stakeholder_request`, `escalate` | §0–§4 (Rule Zero, hierarchy, interaction rules, execution loops, decision speed) |
 | [company_operating_system.md](../02_CONFIG/company_operating_system.md) | CONFIG | When company changes | Company mission, values, non-negotiables, org structure | `init_week`, `prep_121`, `prep_planning` | §1–§2 (Identity & Purpose, Core Values) |
 | [company_strategy.md](../02_CONFIG/company_strategy.md) | CONFIG | Quarterly refresh | Q[N] strategy, OKRs, roadmap North Star, success metrics | `prep_planning`, `shutdown_week` | §1–§2 (Quarterly North Star, OKRs) |
-| [team_operating_system.md](../03_DRIVERS/team_operating_system.md) | DRIVERS | Quarterly refresh | Team size, capacity model, rituals, norms, player rotation | All commands | §1–§6 (Team structure, Capacity Contract) |
+| [team_operating_system.md](../03_DRIVERS/team_operating_system.md) | DRIVERS | Quarterly refresh | Team size, capacity model, rituals, norms, player rotation, partner teams | All commands | §1–§7 (Team structure, Capacity Contract, Partner Teams & Interfaces) |
 | [player_card - [Name].md](../03_DRIVERS/player_card%20-%20%5BName%5D.md) | DRIVERS | Monthly refresh | Individual player profile, growth plan, on-call rotation | `prep_121`, `onboard` | §1–§3 (User Manual, Communication Preferences, Growth Goals) |
 | [tactical_plan.md](../04_PROCESSES/tactical_plan.md) | PROCESSES | Every sprint | Current roadmap, team projects, milestone dates, dependencies | `init_week`, `init_day`, `shutdown_week` | §1–§2 (Roadmap, Risks) |
 

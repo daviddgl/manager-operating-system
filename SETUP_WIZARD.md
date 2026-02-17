@@ -209,6 +209,20 @@ For each team member, ask:
 - ✅ `03_DRIVERS/team_operating_system.md`
 - ✅ `03_DRIVERS/player_card - [Name].md` (one per team member)
 
+#### Round 3D: Partner Teams & Interfaces
+
+Ask:
+1. **What other teams do you regularly collaborate with?** (Platform, Design, Data, Product, QA, etc.)
+   > *List each team, even if superficially.*
+2. **For each partner team:**
+   - Who's the primary contact? (Name, role)
+   - What do you jointly own or deliver? (Shared goal / interface)
+   - How do you communicate? (Slack channel, weekly sync, etc.)
+   - How do you escalate if issues arise? (e.g., "my lead → their lead")
+   - Will this relationship survive if I change teams in 6 months? (Yes/No — "Carries Over" flag)
+
+> *Example: "Platform Team — Contact: Alice (Staff Eng) — Shared: API roadmap — Comm: #platform-sync weekly — Escalation: My lead → Platform lead — Carries Over: Yes (even if I move, we'll probably still share this dependency)"*
+
 ---
 
 ### PHASE 4: YOUR PLAN (5–10 min)
