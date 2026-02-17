@@ -6,8 +6,8 @@
 #  Use case: Gemini, or any platform where reducing file count or simplifying uploads is needed.
 #  
 #  Usage:
-#    ./bundle.sh
-#  
+#    scripts/bundle.sh
+#
 #  Output: Creates a single compiled markdown file in bundle/ directory:
 #    - mos_compiled.md (all OS layers in one file)
 #  
@@ -15,17 +15,19 @@
 #    - All source files are concatenated in layer order (00_BOOT → 05_COMMANDS)
 #    - File boundaries are marked with HTML comments (invisible to rendering)
 #    - Original file paths are preserved as markers for easy navigation
-#    - Cross-references in the compiled file work exactly as in individual files
+#    - Markdown links are preserved as-is; some relative links may not resolve
+#      → Use search and SOURCE FILE markers to navigate within the bundled document
 #  
 #  Deployment:
-#    1. Run: ./bundle.sh
+#    1. Run: scripts/bundle.sh
 #    2. Upload bundle/mos_compiled.md to your AI platform as a knowledge file
 #    3. Paste 05_COMMANDS/system_prompt.md into Custom Instructions (not as a file)
 #    4. Test with: init_week
 
 set -e
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Navigate to repository root (script is at scripts/, go up 1 level)
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BUNDLE_DIR="$REPO_ROOT/bundle"
 OUTPUT_FILE="$BUNDLE_DIR/mos_compiled.md"
 
@@ -43,15 +45,16 @@ echo ""
 # Verify we're in the right directory
 if [ ! -d "$REPO_ROOT/01_KERNEL" ]; then
   echo -e "${RED}Error: MOS repository structure not found.${NC}"
-  echo "Please run this script from the MOS repository root."
+  echo "Please run this script from the MOS repository root or call it as: scripts/bundle.sh"
   exit 1
 fi
 
-# Clean and create bundle directory
-if [ -d "$BUNDLE_DIR" ]; then
-  rm -rf "$BUNDLE_DIR"
-fi
+# Ensure bundle directory exists and remove only the compiled output file
+# (preserve any user-added files like notes or platform-specific artifacts in bundle/)
 mkdir -p "$BUNDLE_DIR"
+if [ -f "$OUTPUT_FILE" ]; then
+  rm -f "$OUTPUT_FILE"
+fi
 
 echo -e "${BLUE}→ Compiling all MOS files into single bundle${NC}"
 echo ""

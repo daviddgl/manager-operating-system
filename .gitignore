@@ -16,8 +16,9 @@
 !.github/
 !.github/**
 
-# Bundle script for AI platform file limit handling
-!bundle.sh
+# Build and deployment scripts
+!scripts/
+!scripts/**
 
 # Publishable Manager Operating System structure
 !00_BOOT/

@@ -373,7 +373,7 @@ Upload all MOS files separately:
 For simplified knowledge management, run the bundle script:
 
 ```bash
-./bundle.sh
+scripts/bundle.sh
 ```
 
 This generates `bundle/mos_compiled.md` containing all MOS content in one file. Then:

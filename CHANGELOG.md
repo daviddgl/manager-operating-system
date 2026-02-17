@@ -22,7 +22,7 @@ The upgrade preserves all your existing data and only asks about new/changed sec
 
 ### Added
 
-- **`bundle.sh`** — Shell script to compile all MOS files into a single consolidated `mos_compiled.md` file. Simplifies deployment and knowledge management on any platform (ChatGPT, Gemini, Claude, etc.). Preserves original file path markers as HTML comments so all cross-references work identically to individual-file deployments. Zero dependencies; works on macOS/Linux.
+- **`bundle.sh`** — Shell script to compile all MOS files into a single consolidated `mos_compiled.md` file. Simplifies deployment and knowledge management on any platform (ChatGPT, Gemini, Claude, etc.). Preserves original file path markers as HTML comments so you can navigate by `SOURCE FILE` markers or search inside the bundle. Note: relative Markdown links between files are not rewritten, so some file-path links may not work in the compiled bundle. Zero dependencies; works on macOS/Linux.
 
 ### Changed
 
@@ -39,7 +39,7 @@ None.
 *(Additive feature — no data migration needed)*
 
 1. **Existing individual-file users:** No action needed. Deployments continue to work unchanged.
-2. **New users or those preferring consolidation:** Run `./bundle.sh` to generate `mos_compiled.md`, then upload as a single knowledge file.
+2. **New users or those preferring consolidation:** Run `scripts/bundle.sh` to generate `mos_compiled.md`, then upload as a single knowledge file.
 
 ---
 

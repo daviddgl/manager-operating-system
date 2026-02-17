@@ -197,10 +197,10 @@ After upgrade, run `init_week` to verify the system works with updated files.
 If you prefer a single consolidated file instead of managing individual OS files, use the bundle script:
 
 ```bash
-./bundle.sh
+scripts/bundle.sh
 ```
 
-This generates a single `mos_compiled.md` file in `bundle/` containing all MOS content. Upload this one file + paste `system_prompt.md` into Custom Instructions. Same functionality, simpler knowledge management.
+This generates a single `mos_compiled.md` file in `bundle/` containing all MOS content. Upload this one file + paste `05_COMMANDS/system_prompt.md` into Custom Instructions. Same functionality, simpler knowledge management.
 
 **Platforms compared:**
 
@@ -211,7 +211,7 @@ This generates a single `mos_compiled.md` file in `bundle/` containing all MOS c
 | Calendar integration | ❌ Must paste manually | ✅ Native Google Calendar |
 | Scheduling | ❌ Reactive only | ✅ Gemini Agent (experimental) |
 
-**Recommendation:** Use individual files for easier editing/updates, or use `bundle.sh` for simplified single-file deployment. Both approaches work on all platforms.
+**Recommendation:** Use individual files for easier editing/updates, or use `scripts/bundle.sh` for simplified single-file deployment. Both approaches work on all platforms.
 
 ---
 
