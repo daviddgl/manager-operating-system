@@ -357,4 +357,35 @@ When you run a command, it:
 
 ---
 
+## 9. Deploying to AI Platforms — Individual or Bundled Files
+
+You have two deployment options:
+
+### Option 1: Individual Files (Default)
+
+Upload all MOS files separately:
+1. Upload files from `01_KERNEL/`, `02_CONFIG/`, `03_DRIVERS/`, `04_PROCESSES/`, `05_COMMANDS/` as knowledge files
+2. Paste `05_COMMANDS/system_prompt.md` into Custom Instructions
+3. Supported on: ChatGPT Projects, Claude Projects, and most AI platforms
+
+### Option 2: Single Bundled File (Simplified)
+
+For simplified knowledge management, run the bundle script:
+
+```bash
+./bundle.sh
+```
+
+This generates `bundle/mos_compiled.md` containing all MOS content in one file. Then:
+
+1. Upload `bundle/mos_compiled.md` as a knowledge file
+2. Paste `05_COMMANDS/system_prompt.md` into Custom Instructions
+3. Works on all platforms (ChatGPT, Gemini, Claude, etc.)
+
+**Benefits of bundling:** Single file to manage, no file organization complexity, works on all platforms including those with file count worries.
+
+The bundled format preserves original file path references (e.g., `01_KERNEL/personal_dna.md`), so commands execute identically to individual-file deployments.
+
+---
+
 **Next step:** Read [SETUP_WIZARD.md](SETUP_WIZARD.md) to begin filling in your personal OS.

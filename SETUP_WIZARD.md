@@ -257,6 +257,17 @@ Ask:
 > - **Claude** (use Projects)
 > - **Other**
 
+**Optional: Consolidated Bundling**
+
+If you prefer a single consolidated file instead of managing individual OS files across your platform:
+
+> Run `./bundle.sh` from the MOS repository root to generate `mos_compiled.md` containing all MOS content. Then:
+> 1. Upload `bundle/mos_compiled.md` to your AI platform as a knowledge file
+> 2. Paste `05_COMMANDS/system_prompt.md` into Custom Instructions
+> 3. Test with: `init_week`
+>
+> This works on all platforms (ChatGPT, Gemini, Claude) and provides the same functionality as individual files.
+
 #### Round 5D: Generate Remaining Files
 
 Generate:
