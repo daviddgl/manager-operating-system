@@ -193,16 +193,26 @@ After upgrade, run `init_week` to verify the system works with updated files.
 2. **Paste the System Prompt:** Copy `05_COMMANDS/system_prompt.md` into Custom Instructions
 3. **Test:** Type `init_week` and verify the AI asks for team availability and produces the structured output
 
+**Bundled Upload (Optional consolidation):**
+
+If you prefer a single consolidated file instead of managing individual OS files, use the bundle script:
+
+```bash
+scripts/bundle.sh
+```
+
+This generates a single `mos_compiled.md` file in `bundle/` containing all MOS content. Upload this one file + paste `05_COMMANDS/system_prompt.md` into Custom Instructions. Same functionality, simpler knowledge management.
+
 **Platforms compared:**
 
 | Feature | ChatGPT Project | Gemini Gem |
 |---|---|---|
-| Knowledge files (OS docs) | ✅ Up to 20 files, 512MB each | ❌ Per-conversation upload only |
+| Knowledge files (OS docs) | ✅ Up to 20 files, 512MB each | ✅ Supports bundled single file |
 | Custom instructions | ✅ System Prompt | ✅ System Prompt |
 | Calendar integration | ❌ Must paste manually | ✅ Native Google Calendar |
 | Scheduling | ❌ Reactive only | ✅ Gemini Agent (experimental) |
 
-**Recommendation:** ChatGPT Project for knowledge persistence. Paste Calendar/task tracker data when commands ask.
+**Recommendation:** Use individual files for easier editing/updates, or use `scripts/bundle.sh` for simplified single-file deployment. Both approaches work on all platforms.
 
 ---
 

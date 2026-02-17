@@ -1017,7 +1017,7 @@ Next Monday: init_week → [references shutdown_week for carryover]
 ## Usage Instructions
 
 1. **Upload all OS files** to your AI platform (ChatGPT Project / Gemini Gem)
-2. **Paste `system_prompt.md`** into custom instructions
+2. **Paste `05_COMMANDS/system_prompt.md`** into Custom Instructions
 3. **Type command name** in conversation (e.g., `init_week`)
 4. **AI will:** read this reference → load OS files → ask for inputs → produce output
 5. **Store command outputs** in the session for chaining

@@ -18,7 +18,7 @@ The upgrade preserves all your existing data and only asks about new/changed sec
 
 ## [Unreleased]
 
-> Future changes will be documented here before release.
+> Changes documented here will be included in the next version.
 
 ### Added
 
@@ -76,6 +76,24 @@ The upgrade preserves all your existing data and only asks about new/changed sec
 ### Removed
 
 _(No features removed in this release)_
+- **`bundle.sh`** — Shell script to compile all MOS files into a single consolidated `mos_compiled.md` file. Simplifies deployment and knowledge management on any platform (ChatGPT, Gemini, Claude, etc.). Preserves original file path markers as HTML comments so you can navigate by `SOURCE FILE` markers or search inside the bundle. Note: relative Markdown links between files are not rewritten, so some file-path links may not work in the compiled bundle. Zero dependencies; works on macOS/Linux.
+
+### Changed
+
+- **`00_BOOT/README.md`** — Updated "AI Copilot Integration" section with bundling as an optional consolidation approach. Updated platform comparison table to note bundling works across all platforms.
+- **`SETUP_WIZARD.md`** — Added bundling guidance in Phase 5C (AI Platform selection) explaining how to use `bundle.sh` for simplified single-file deployment.
+- **`ARCHITECTURE.md`** — Added §9 "Deploying to AI Platforms" documenting both individual-file and bundled deployment options.
+
+### Removed
+
+None.
+
+### Migration Steps
+
+*(Additive feature — no data migration needed)*
+
+1. **Existing individual-file users:** No action needed. Deployments continue to work unchanged.
+2. **New users or those preferring consolidation:** Run `scripts/bundle.sh` to generate `mos_compiled.md`, then upload as a single knowledge file.
 
 ---
 
