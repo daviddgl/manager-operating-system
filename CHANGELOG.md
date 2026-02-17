@@ -25,7 +25,7 @@ The upgrade preserves all your existing data and only asks about new/changed sec
 - **New §7 "Partner Teams & Interfaces"** in `03_DRIVERS/team_operating_system.md`
   - Tracks cross-team collaboration, shared goals, communication channels, escalation paths
   - Includes "Carries Over" column to mark relationships that survive team changes within same company
-  - Used by: `init_week`, `stakeholder_request`, `capacity_check`, `escalate`, `quarterly_reset`
+  - Used by: `init_week`, `prep_planning`, `stakeholder_request`, `capacity_check`, `escalate`, `quarterly_reset`
   
 - **New Round 3D in SETUP_WIZARD Phase 3** — Partner Teams & Interfaces discovery
   - Asks manager to map all collaborating teams and key contacts during initial setup
@@ -69,9 +69,10 @@ The upgrade preserves all your existing data and only asks about new/changed sec
    - Discard entries marked "Carries Over: No" if changing teams
    - Update contacts and shared goals for entries marked "Carries Over: Yes"
 
-4. **Verify file freshness:**
-   - Run `prep_refresh` to validate all files are up-to-date
-   - The system will flag Team OS as needing quarterly refresh if §7 wasn't added
+4. **Verify §7 was added:**
+   - Open your `team_operating_system.md` and confirm §7 "Partner Teams & Interfaces" is present
+   - Note: `prep_refresh` checks timestamp staleness only — it will NOT automatically detect a missing §7 section
+   - If §7 is absent, copy the template from the updated `03_DRIVERS/team_operating_system.md` and fill it in manually
 
 ### Removed
 

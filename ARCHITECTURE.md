@@ -170,7 +170,7 @@ This table shows the logic: what context does each command read, what data does 
 | `capacity_check` | DRIVERS §2,4,7 + KERNEL §3 | Sprint metrics | Jira | Capacity analysis + breach flags |
 | `retro` | KERNEL §1,7 + DRIVERS §5 | Retrospective notes | — | Retro facilitator guide |
 | `stakeholder_request [desc]` | KERNEL §3 + DRIVERS §2,4,7 + PROCESSES §1 | Effort, requestor | Jira + Airtable | Decision + script for "no" |
-| `escalate` | KERNEL §3,8 + DRIVERS §4 | Problem + context | — | Escalation memo + talking points |
+| `escalate` | KERNEL §3,8 + DRIVERS §4,7 | Problem + context | — | Escalation memo + talking points |
 | `quarterly_reset` | CONFIG + KERNEL + DRIVERS + PROCESSES | New strategy, team changes | — | New Q plan template |
 
 ---
