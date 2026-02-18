@@ -16,7 +16,7 @@ The upgrade preserves all your existing data and only asks about new/changed sec
 
 ---
 
-## [Unreleased]
+## [2026/02/18]
 
 > Changes documented here will be included in the next version.
 
