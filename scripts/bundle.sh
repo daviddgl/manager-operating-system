@@ -21,7 +21,7 @@
 #  Deployment:
 #    1. Run: scripts/bundle.sh
 #    2. Upload bundle/mos_compiled.md to your AI platform as a knowledge file
-#    3. Paste bootstrap_prompt.md into Custom Instructions (static — never changes)
+#    3. Paste 00_BOOT/bootstrap_prompt.md into Custom Instructions (static — never changes)
 #    4. Test with: init_week
 
 set -e
@@ -141,6 +141,6 @@ fi
 echo ""
 echo -e "${YELLOW}Next steps:${NC}"
 echo "  1. Upload bundle/mos_compiled.md to your AI platform"
-echo "  2. Paste bootstrap_prompt.md into Custom Instructions (static — paste once, never change)"
+echo "  2. Paste 00_BOOT/bootstrap_prompt.md into Custom Instructions (static — paste once, never change)"
 echo "  3. Test with: init_week"
 echo ""

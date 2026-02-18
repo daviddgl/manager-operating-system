@@ -1010,7 +1010,7 @@ If the user confirms bundle generation (or uses `--remote bundle`), after all mi
 5. Output the full bundle as a single code block
 6. Instruct the user: replace the existing `mos_compiled.md` knowledge file in their Gem/GPT/Project with this new bundle — no need to run `bundle.sh` manually
 
-> **Platform note:** If the generated bundle exceeds the platform's output limit, split into 2–3 parts with clear instructions on paste order. Remind the user that `bootstrap_prompt.md` in Custom Instructions stays unchanged — only the knowledge file needs replacing.
+> **Platform note:** If the generated bundle exceeds the platform's output limit, split into 2–3 parts with clear instructions on paste order. Remind the user that `00_BOOT/bootstrap_prompt.md` in Custom Instructions stays unchanged — only the knowledge file needs replacing.
 
 ---
 
@@ -1144,12 +1144,12 @@ Next Monday: init_week → [references shutdown_week for carryover]
 
 ## Usage Instructions
 
-1. **Upload all OS files** to your AI platform (ChatGPT Project / Gemini Gem) — or use `scripts/bundle.sh` to compile into a single `mos_compiled.md`
-2. **Paste `bootstrap_prompt.md`** into Custom Instructions (static — paste once, never changes between versions)
+1. **Upload all OS files** to your AI platform (ChatGPT Project / Gemini Gem / Claude Project) — or use `scripts/bundle.sh` to compile into a single `mos_compiled.md`
+2. **Paste `00_BOOT/bootstrap_prompt.md`** into Custom Instructions (static — paste once, never changes between versions)
 3. **Type command name** in conversation (e.g., `init_week`)
 4. **AI will:** read this reference → load OS files → ask for inputs → produce output
 5. **Store command outputs** in the session for chaining
 
 ---
 
-**Note:** Your full operating instructions (`system_prompt.md`) are bundled inside the knowledge files. `bootstrap_prompt.md` is the static pointer that tells the AI where to find them.
+**Note:** Your full operating instructions (`system_prompt.md`) are bundled inside the knowledge files. `00_BOOT/bootstrap_prompt.md` is the static pointer that tells the AI where to find them.
