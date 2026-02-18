@@ -50,6 +50,16 @@ The upgrade preserves all your existing data and only asks about new/changed sec
 
 ### Changed
 
+- **Enhanced `version_upgrade` command** in `05_COMMANDS/command_reference.md`:
+  - Added **Remote Mode** (`--remote` flag): fetches `CHANGELOG.md` and changed template files directly from the MOS GitHub repository via web browsing (Gemini, ChatGPT, Claude with web tools)
+  - Added **Inline Bundle Generation**: after migration, generates a complete `mos_compiled.md` bundle inline so bundled-deployment users can paste it directly into their Gem/GPT without running `bundle.sh`
+  - Added graceful fallbacks: if web browsing unavailable → prompt user to paste CHANGELOG manually; if bundle exceeds output limits → split into numbered parts with paste-order instructions
+  - Added `External Tools / Live Data` field pointing to `raw.githubusercontent.com` raw file URLs
+- **Updated `05_COMMANDS/system_prompt.md`**:
+  - Added **Repository URL** configuration block with raw file base URL for remote fetch
+  - Added platform compatibility note (Gemini, ChatGPT, Claude web tools)
+  - Added three new edge cases: missing CHANGELOG, web browsing failure, and bundle output limit exceeded
+
 - **Updated 6 commands** in `05_COMMANDS/command_reference.md` to reference Team OS §7:
   - `init_week` — flags cross-team sync opportunities
   - `prep_planning` — surfaces cross-team dependencies
