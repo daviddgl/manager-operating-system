@@ -94,7 +94,8 @@ add_file_to_bundle() {
   echo "- Layer 02: Company Context (Mission, Strategy)"
   echo "- Layer 03: Team Configuration (Team OS, Player Cards)"
   echo "- Layer 04: Current Processes (Tactical Plan)"
-  echo "- Layer 05: Command Reference (All 14 operations)"
+  echo "- Layer 05: Command Reference (All 15 operations)"
+  echo "- Layer 06: Virtual Advisory Council (Boardroom Personas)"
   echo ""
   echo "To find specific content, search for: \`<!-- SOURCE FILE: [path] -->\`"
   echo ""
@@ -121,6 +122,7 @@ fi
 
 add_file_to_bundle "$REPO_ROOT/04_PROCESSES/tactical_plan.md"
 add_file_to_bundle "$REPO_ROOT/05_COMMANDS/command_reference.md"
+add_file_to_bundle "$REPO_ROOT/06_BOARDROOM/boardroom.md"
 
 echo -e "${GREEN}✓ Bundle generation complete!${NC}"
 echo ""

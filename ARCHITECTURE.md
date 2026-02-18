@@ -16,7 +16,9 @@ graph TD
     C --> D["👥 03_DRIVERS<br/>Team Specifics"]
     D --> E["📅 04_PROCESSES<br/>Current Roadmap"]
     E --> F["🎮 05_COMMANDS<br/>AI Interface Layer"]
-    F -.->|executes| G["AI Copilot<br/>ChatGPT / Gemini"]
+    F --> G["🧠 06_BOARDROOM<br/>Virtual Advisory Council"]
+    G -.->|executes| H["AI Copilot<br/>ChatGPT / Gemini"]
+    F -.->|executes| H
     
     style A fill:#404040
     style B fill:#404040
@@ -25,6 +27,7 @@ graph TD
     style E fill:#404040
     style F fill:#404040
     style G fill:#404040
+    style H fill:#404040
 ```
 
 **What each layer does:**
@@ -33,7 +36,8 @@ graph TD
 - **02_CONFIG** — Your company's mission and strategy (changes when company changes)
 - **03_DRIVERS** — Your current team setup (changes when team changes)
 - **04_PROCESSES** — Your current quarter's plan (changes every quarter)
-- **05_COMMANDS** — The 14 operations that glue everything together via AI
+- **05_COMMANDS** — The 15 operations that glue everything together via AI
+- **06_BOARDROOM** — Your virtual advisory council (permanent, portable — personas travel with you)
 
 ---
 
@@ -71,6 +75,11 @@ graph LR
         CMD4["stakeholder_request<br/>Decision gate"]
         CMD5["capacity_check<br/>Load check"]
         CMD6["escalate<br/>Hierarchy"]
+        CMD7["boardroom<br/>Advisory council"]
+    end
+    
+    subgraph Boardroom["🧠 BOARDROOM (Portable - travels with you)"]
+        B1["Boardroom<br/>Personas & Principles"]
     end
     
     subgraph External["🌐 DATA SOURCES (External Tools)"]
@@ -86,6 +95,7 @@ graph LR
     D1 --> CMD5
     D2 --> CMD3
     P1 --> CMD2
+    B1 --> CMD7
     
     CMD1 -.->|queries| EXT1
     CMD1 -.->|queries| EXT2
@@ -99,6 +109,7 @@ graph LR
     style Processes fill:#404040,stroke:#e91e63,stroke-width:3px
     style Commands fill:#404040,stroke:#333,stroke-width:2px
     style External fill:#404040,stroke:#009688,stroke-width:2px
+    style Boardroom fill:#404040,stroke:#2196f3,stroke-width:3px
 ```
 
 **Key insight:** 
@@ -172,6 +183,7 @@ This table shows the logic: what context does each command read, what data does 
 | `stakeholder_request [desc]` | KERNEL §3 + DRIVERS §2,4,7 + PROCESSES §1 | Effort, requestor | Jira + Airtable | Decision + script for "no" |
 | `escalate` | KERNEL §3,8 + DRIVERS §4,7 | Problem + context | — | Escalation memo + talking points |
 | `quarterly_reset` | CONFIG + KERNEL + DRIVERS + PROCESSES | New strategy, team changes | — | New Q plan template |
+| `boardroom [topic]` | BOARDROOM §1,2,3 + KERNEL DNA + MOS §12 | Topic description, session depth | — | Multi-persona advisory session + synthesis |
 
 ---
 
@@ -186,6 +198,7 @@ graph LR
         M1["01_KERNEL<br/>Decision logic"]
         M2["03_DRIVERS<br/>Team context"]
         M3["04_PROCESSES<br/>Strategic direction"]
+        M4["06_BOARDROOM<br/>Advisory personas"]
     end
     
     subgraph CMD["🎮 Commands<br/>(AI operations)"]
@@ -237,7 +250,8 @@ graph TD
     
     subgraph Keep["✅ KEEP — Travels with you"]
         K["01_KERNEL<br/>Your philosophy<br/>Your decision rules<br/>Your personal DNA"]
-        C["05_COMMANDS<br/>Your 14 operations<br/>Command definitions"]
+        C["05_COMMANDS<br/>Your 15 operations<br/>Command definitions"]
+        B["06_BOARDROOM<br/>Your advisory council<br/>Persona definitions"]
     end
     
     subgraph Update["🔄 UPDATE — New company only"]
@@ -313,6 +327,10 @@ graph TD
 
 ## 8. Quick Reference: What to Read When
 
+**I'm unsure how to handle this management situation and want fresh perspectives:**
+→ Run: `boardroom "[describe your situation]"`
+→ It will activate 3–4 relevant personas, voice each perspective, and synthesise a recommended next action
+
 **I have a new team member:**
 → Read: `03_DRIVERS/player_card - [Name].md` + `01_KERNEL/manager_operating_system.md` §2 (expectations)
 
@@ -338,7 +356,7 @@ graph TD
 
 **MOS is a three-part system:**
 
-1. **Static Knowledge** (00_BOOT through 04_PROCESSES) = your personal playbook
+1. **Static Knowledge** (00_BOOT through 04_PROCESSES + 06_BOARDROOM) = your personal playbook
 2. **Command Layer** (05_COMMANDS) = how you invoke it
 3. **External Data** (Jira, Airtable, Slack) = live context that commands query
 

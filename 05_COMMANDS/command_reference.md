@@ -19,7 +19,7 @@
 1. **Lifecycle** — Daily and weekly bookends (init/shutdown cycles)
 2. **People** — Team member interactions (1:1s, onboarding)
 3. **Execution** — Planning and capacity management
-4. **Decision Support** — Stakeholder requests and escalations
+4. **Decision Support** — Stakeholder requests, escalations, and boardroom advisory sessions
 5. **Maintenance** — System refresh and file updates
 
 ---
@@ -995,6 +995,98 @@ In this case, you're on v2026.02.
 **Chains With:** 
 - Often follows `prep_refresh` (get files fresh before upgrading)
 - After upgrade, run `init_week` or `quarterly_reset` to verify system works
+
+---
+
+## 🎙️ BOARDROOM COMMANDS
+
+### `boardroom [topic]`
+
+**Trigger:** When you're uncertain how to handle a high-stakes management situation and want structured, adversarial input from multiple perspectives
+**Purpose:** Convene your virtual advisory council — activate the most relevant boardroom personas for the given topic, get each persona's take and probing questions, then synthesise the divergent views into a decision-ready output
+
+**OS Files to Read:**
+- `06_BOARDROOM/boardroom.md` — §1 Working Principles, §2 Manager's Chair, §3 All Personas
+- `01_KERNEL/personal_dna.md` — Goals, Constraints & Fears, Avoidance Patterns
+- `01_KERNEL/manager_operating_system.md` — §12 Pressure Mode (check if session is stress-driven)
+
+**Ask User For:**
+- `[topic]` — The situation, decision, or challenge to bring to the boardroom (1–3 sentences of context)
+- Session depth: **Quick scan** (3 personas, 5-min read) or **Full session** (4–5 personas, deeper analysis)
+
+**Persona Selection Logic:**
+
+Auto-select 3–4 personas based on topic type. Use this mapping as a guide:
+
+| Topic Type | Activate |
+| People / team dynamics / trust | People Coach + Vulnerability Anchor + Challenger |
+| Delivery / performance / output | Execution Engine + Principles Force + Challenger |
+| Strategy / communication / direction | Narrative Strategist + Execution Engine + Challenger |
+| Complex / multi-faceted decision | All 4: Execution Engine + People Coach + Principles Force + Challenger |
+| Manager wellbeing / pressure / burnout | Vulnerability Anchor + Narrative Strategist + People Coach |
+
+Always include the **Challenger** persona unless the topic is explicitly wellbeing-focused.
+
+**Output Format:**
+```
+# Boardroom Session — [Topic Summary]
+**Date:** [Today]
+**Session Depth:** [Quick / Full]
+
+---
+
+## Personas Activated
+[List 3–4 personas selected, with one-line rationale for why each was chosen for this topic]
+
+---
+
+## [Persona 1 Name] — [Role]
+> *"[Their worldview quote]"*
+
+**Their Take:**
+[2–4 sentences of their perspective on the topic, voiced in their style]
+
+**They Ask:**
+1. [Probing question 1]
+2. [Probing question 2]
+
+---
+
+## [Persona 2 Name] — [Role]
+[same structure]
+
+---
+
+[repeat for each activated persona]
+
+---
+
+## Integrated Synthesis
+**Where they agree:**
+- [Point of consensus 1]
+- [Point of consensus 2]
+
+**Where they diverge:**
+- [Persona A] wants [X] — [Persona B] pushes back with [Y]
+- [Note the tension and what it means for your decision]
+
+**Recommended next action:**
+[One concrete, actionable step the manager can take today based on the boardroom discussion]
+
+---
+
+> ⚠️ **Rule Zero:** The boardroom advises. You decide.
+> Run `stakeholder_request` or `escalate` if this decision requires a formal protocol.
+```
+
+**Critical Files for Freshness:**
+- 🟢 `06_BOARDROOM/boardroom.md` — review quarterly (no hard staleness trigger)
+- 🟢 `01_KERNEL/personal_dna.md` — 30-day grace
+
+**Chains With:**
+- Precedes `stakeholder_request [description]` — boardroom clarifies your position before running the decision protocol
+- Precedes `escalate [topic]` — boardroom helps you think through whether to escalate and how
+- Follows any command where Pressure Mode is detected — boardroom provides a structured debrief
 
 ---
 
