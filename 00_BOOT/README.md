@@ -24,10 +24,16 @@ Prefer guided onboarding? Start with the root [SETUP_WIZARD.md](../SETUP_WIZARD.
 ┌─────────────────────────────────────────────────────┐
 │  05_COMMANDS (Interface — how to interact)           │
 │  ┌───────────────────────────────────────────────┐   │
-│  │ command_reference          → 14 named          │   │
+│  │ command_reference          → 15 named          │   │
 │  │                              operations        │   │
 │  │ system_prompt              → AI copilot        │   │
 │  │                              instructions      │   │
+│  └───────────────────────────────────────────┘   │
+├─────────────────────────────────────────────────────┤
+│  06_BOARDROOM (Portable — travels with you)          │
+│  ┌───────────────────────────────────────────┐   │
+│  │ boardroom                  → Virtual advisory  │   │
+│  │                              council personas   │   │
 │  └───────────────────────────────────────────────┘   │
 ├─────────────────────────────────────────────────────┤
 │  01_KERNEL (Portable — travels with you)             │
@@ -75,6 +81,7 @@ Quick lookup for all template files in your MOS:
 | [team_operating_system.md](../03_DRIVERS/team_operating_system.md) | DRIVERS | Quarterly refresh | Team size, capacity model, rituals, norms, player rotation, partner teams | All commands | §1–§7 (Team structure, Capacity Contract, Partner Teams & Interfaces) |
 | [player_card - [Name].md](../03_DRIVERS/player_card%20-%20%5BName%5D.md) | DRIVERS | Monthly refresh | Individual player profile, growth plan, on-call rotation | `prep_121`, `onboard` | §1–§3 (User Manual, Communication Preferences, Growth Goals) |
 | [tactical_plan.md](../04_PROCESSES/tactical_plan.md) | PROCESSES | Every sprint | Current roadmap, team projects, milestone dates, dependencies | `init_week`, `init_day`, `shutdown_week` | §1–§2 (Roadmap, Risks) |
+| [boardroom.md](../06_BOARDROOM/boardroom.md) | BOARDROOM | Quarterly review | Virtual advisory council — persona definitions, working principles, manager context | `boardroom` | §1–§3 (Overview, Chair, Personas) |
 
 **Legend:**
 - **Layer** = Which OS folder the file lives in (see Architecture above)
@@ -154,6 +161,7 @@ After upgrade, run `init_week` to verify the system works with updated files.
 3. `/03_DRIVERS/` — **Archive and replace.** Install new Team OS + Player Cards.
 4. `/04_PROCESSES/` — **Delete and replace.** New tactical plan for new context.
 5. `/05_COMMANDS/` — **Keep.** Commands are portable; they adapt to any team's data.
+6. `/06_BOARDROOM/` — **Keep.** Your advisory council travels with you. Review personas quarterly.
 
 ## Logic vs. Data
 

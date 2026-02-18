@@ -17,7 +17,8 @@ The repository follows an OS-layer metaphor with numbered folders:
 | `02_CONFIG/` | Environment | Per-company | Company mission, values, strategy — inherited context |
 | `03_DRIVERS/` | Swappable | Per-team | Team OS (squad, capacity, rituals, partner teams), player cards — replaced when changing teams |
 | `04_PROCESSES/` | Ephemeral | Per-quarter | Tactical plan, current roadmap — replaced quarterly |
-| `05_COMMANDS/` | Interface | Permanent | 14 named AI commands + system prompt |
+| `05_COMMANDS/` | Interface | Permanent | 15 named AI commands + system prompt |
+| `06_BOARDROOM/` | Advisory council | Permanent | Virtual advisory council — portable persona definitions, travels with the manager |
 
 **Root folder** contains only repository metadata and onboarding entry docs (README, LICENSE, NOTICE, SETUP_WIZARD, ARCHITECTURE, CONTRIBUTING, etc.).
 
@@ -104,7 +105,7 @@ When manager changes teams/companies, they keep KERNEL + COMMANDS (the logic), b
 
 5. **Pressure Mode**: MOS §12 (Pressure Mode) defines stress-indicator patterns. AI copilots should proactively detect these patterns in session context and suggest de-escalation (e.g., "You're in Pressure Mode — simplify or delegate"). This is a safety mechanism.
 
-6. **Command independence**: Each of the 14 commands in `05_COMMANDS/command_reference.md` is self-contained and can be run in isolation. However, all commands read from the same KERNEL, CONFIG, DRIVERS, PROCESSES files to ensure consistent decision logic across operations.
+6. **Command independence**: Each of the 15 commands in `05_COMMANDS/command_reference.md` is self-contained and can be run in isolation. However, all commands read from the same KERNEL, CONFIG, DRIVERS, PROCESSES, and BOARDROOM files to ensure consistent decision logic across operations.
 
 ## Repository Policy
 
@@ -114,9 +115,9 @@ When manager changes teams/companies, they keep KERNEL + COMMANDS (the logic), b
 
 ## When Editing
 
-- Preserve the numbered folder structure (`00_` through `05_`).
+- Preserve the numbered folder structure (`00_` through `06_`).
 - Keep cross-references consistent: if you rename a section, update all files that reference it.
-- The 14 commands in `05_COMMANDS/command_reference.md` each specify which files and sections they read — keep these in sync.
+- The 15 commands in `05_COMMANDS/command_reference.md` each specify which files and sections they read — keep these in sync.
 - `SETUP_WIZARD.md` is a system prompt pasted into external AI tools — it must be self-contained and reference the current repo structure accurately.
 - `05_COMMANDS/system_prompt.md` is the master AI copilot instruction — changes here affect all command execution behavior.
 - **ARCHITECTURE.md** is visual documentation for new manager users. When changing layer structure or adding/removing commands, update the 8 Mermaid diagrams to reflect the changes (especially diagrams 2, 3, 4, and 8).

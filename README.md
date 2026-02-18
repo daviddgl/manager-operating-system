@@ -71,7 +71,8 @@ Manager Operating System/
 ├── 02_CONFIG/         # Company: mission, strategy
 ├── 03_DRIVERS/        # Team: squad, capacity, player cards
 ├── 04_PROCESSES/      # Quarter: tactical plan, risks
-└── 05_COMMANDS/       # Interface: 14 commands + AI system prompt
+├── 05_COMMANDS/       # Interface: 15 commands + AI system prompt
+└── 06_BOARDROOM/      # Advisory council: portable persona definitions
 ```
 
 ---
@@ -84,6 +85,7 @@ Manager Operating System/
 | **People** | `prep_121 [name]` · `onboard [name]` |
 | **Execution** | `prep_planning` · `capacity_check` · `retro` |
 | **Decisions** | `stakeholder_request` · `escalate` · `quarterly_reset` |
+| **Boardroom** | `boardroom [topic]` |
 | **Maintenance** | `prep_refresh` · `version_upgrade [target_version]` |
 
 Each command tells the AI which files to read, what to ask you, and what structured output to produce. See [05_COMMANDS/command_reference.md](05_COMMANDS/command_reference.md) for full definitions.
@@ -96,7 +98,7 @@ Each command tells the AI which files to read, what to ask you, and what structu
 
 Change teams? Change companies?
 
-1. **Keep** `01_KERNEL/` + `05_COMMANDS/` (your decision logic)
+1. **Keep** `01_KERNEL/` + `05_COMMANDS/` + `06_BOARDROOM/` (your decision logic + advisory council)
 2. **Update** `02_CONFIG/` (new company context)
 3. **Replace** `03_DRIVERS/` + `04_PROCESSES/` (new team + roadmap)
 
