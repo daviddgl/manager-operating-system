@@ -112,8 +112,15 @@ The file freshness validation system uses `Last Updated` dates to detect when fi
 
 **Upgrading to New Versions:**
 
-When a new MOS version is released:
+When a new MOS version is released, you have two upgrade paths:
 
+**Option A — Remote upgrade (recommended for Gem/GPT users):**
+1. **Run** `version_upgrade --remote` in your AI copilot
+2. The AI will browse the MOS GitHub repository to fetch the latest CHANGELOG and changed template files
+3. **Follow migration steps** — AI walks through each change, preserving your data
+4. **Confirm bundle generation** — AI produces a complete `mos_compiled.md` you paste directly into your Gem/GPT knowledge file
+
+**Option B — Manual upgrade:**
 1. **Download new version files** from repository (or `git pull` if tracking)
 2. **Check** [`CHANGELOG.md`](../CHANGELOG.md) for what changed between your version and target
 3. **Run** `version_upgrade [target_version]` in your AI copilot (e.g., `version_upgrade 2026.08`)
@@ -125,13 +132,16 @@ When a new MOS version is released:
    - Only ask about new/modified sections
    - Update `Version` field in affected files
 
+> **Platform note:** Remote fetch (`--remote`) requires web browsing capability. Supported by Gemini (Google Search), ChatGPT (web browsing), and Claude (web tools). If browsing is unavailable, the command falls back to asking you to paste the CHANGELOG manually.
+
 **Example upgrade flow:**
 
 ```
-You: version_upgrade 2026.08
+You: version_upgrade --remote
 
 AI:
 # Version Upgrade — 2026.02 → 2026.08
+Source: Remote GitHub fetch
 
 ## Change Summary
 - Added: New §14 in MOS (Decision Delegation Framework)
@@ -140,13 +150,12 @@ AI:
 
 ## Migration Plan
 Step 1: Add §14 to MOS
-  [Shows template, asks you to fill it]
+  [Shows template fetched from GitHub, asks you to fill it]
 Step 2: Rename Team OS §6
   [Shows diff, asks you to adapt]
-Step 3: Archive old template
-  [Confirms removal]
+...
 
-Ready to proceed?
+Generate updated bundle for your Gem/GPT? (Y/N)
 ```
 
 After upgrade, run `init_week` to verify the system works with updated files.

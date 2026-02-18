@@ -878,16 +878,27 @@ Only update what changed. Do **not** re-interview the entire file unless using `
 
 ### `version_upgrade`
 
-**Trigger:** When new MOS framework version is released
-**Purpose:** Upgrade from your current version to a newer version while preserving all user data
+**Trigger:** When new MOS framework version is released — either because the user typed `version_upgrade`, `version_upgrade [target_version]`, or `version_upgrade --remote`
+**Purpose:** Upgrade from your current version to a newer version while preserving all user data. Supports two modes:
+- **Local mode** (default): reads CHANGELOG already loaded in the conversation
+- **Remote mode** (`--remote` flag, or when CHANGELOG is missing/outdated): fetches `CHANGELOG.md` and changed template files directly from the MOS GitHub repository via web browsing
 
 **OS Files to Read:**
 - **All files** — detect current version from headers
-- `CHANGELOG.md` — read all entries between current and target version
+- `CHANGELOG.md` — read all entries between current and target version (local or remote)
+
+**External Tools / Live Data:**
+- **GitHub raw file access** (Remote mode only) — browse the following URLs:
+  - CHANGELOG: `https://raw.githubusercontent.com/[mos-repo-owner]/[mos-repo-name]/main/CHANGELOG.md`
+  - Individual changed template files: same base URL + file path (e.g., `.../main/03_DRIVERS/team_operating_system.md`)
+  - File list derived from CHANGELOG `### Added` / `### Changed` entries
+  - Fallback: if browsing fails, ask user to paste the new `CHANGELOG.md` content manually
 
 **Ask User For:**
-- Target version to upgrade to (e.g., `2026.08`)
-- Confirmation before applying migration steps
+- Target version to upgrade to (e.g., `2026.08`) — or detect latest from remote CHANGELOG
+- Confirm remote fetch from GitHub (Y/N) — prompted if `--remote` flag used or CHANGELOG appears outdated
+- Confirmation before applying each migration step
+- Generate inline bundle after migration (Y/N) — for bundled-deployment users (Gemini Gems, ChatGPT GPTs)
 
 **Critical Files for Freshness:**
 - All files will be updated with new Version field during upgrade
@@ -899,8 +910,9 @@ Only update what changed. Do **not** re-interview the entire file unless using `
 
 ## Current State
 - **Your Version:** [Detected from file headers]
-- **Latest Version:** [Target version]
+- **Latest Version:** [From CHANGELOG — local or remote]
 - **Versions to Apply:** [List intermediate versions if any]
+- **Source:** Local CHANGELOG / Remote GitHub fetch
 
 ---
 
@@ -931,8 +943,8 @@ Total steps: [#]
 [Description from CHANGELOG]
 
 **Your action:**
-- If Added: [Show template section, ask user to fill it]
-- If Changed: [Show diff, ask user to adapt their content]
+- If Added: [Show template section — fetched from GitHub if Remote mode, otherwise from CHANGELOG — ask user to fill in their data]
+- If Changed: [Show diff between old structure and new template, ask user to adapt their content]
 - If Removed: [Confirm archival, show what to remove]
 
 **Ready to proceed?** (yes/no)
@@ -979,6 +991,28 @@ If something breaks:
 
 ---
 
+## Inline Bundle Generation (Bundled-Deployment Users)
+
+If the user confirms bundle generation (or uses `--remote bundle`), after all migration steps are complete:
+
+1. Assemble the complete `mos_compiled.md` inline from the migrated file contents (user data merged with new framework structure)
+2. Follow the same concatenation order as `scripts/bundle.sh`:
+   - `00_BOOT/README.md`
+   - `01_KERNEL/manager_operating_system.md`, `manager_decision_protocol.md`, `personal_dna.md`
+   - `02_CONFIG/company_operating_system.md`, `company_strategy.md`
+   - `03_DRIVERS/team_operating_system.md`, `player_card - [Name].md` (one per team member)
+   - `04_PROCESSES/tactical_plan.md`
+   - `05_COMMANDS/command_reference.md`
+   - `06_BOARDROOM/boardroom.md`
+3. Wrap each file with: `<!-- SOURCE FILE: [relative_path] -->`
+4. **Do NOT include** `system_prompt.md` in the bundle (it is pasted into Custom Instructions / System Prompt separately)
+5. Output the full bundle as a single code block
+6. Instruct the user: replace the existing `mos_compiled.md` knowledge file in their Gem/GPT/Project with this new bundle — no need to run `bundle.sh` manually
+
+> **Platform note:** If the generated bundle exceeds the platform's output limit, split into 2–3 parts with clear instructions on paste order. Always remind the user to also update their `system_prompt.md` in Custom Instructions if that file changed.
+
+---
+
 ## How to Check Your Current Version
 
 Look at any file header — the `Version:` field shows your MOS template version.
@@ -995,6 +1029,7 @@ In this case, you're on v2026.02.
 **Chains With:** 
 - Often follows `prep_refresh` (get files fresh before upgrading)
 - After upgrade, run `init_week` or `quarterly_reset` to verify system works
+- If inline bundle was generated: user replaces their Gem/GPT knowledge file with the bundle — no need to run `bundle.sh` separately
 
 ---
 
