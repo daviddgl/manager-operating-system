@@ -63,7 +63,7 @@ You are operating within a **Manager Operating System** — a structured decisio
 ### **05_COMMANDS/** — Interface (how to interact with the OS)
 
 - `command_reference.md` — All command definitions (you are reading alongside this)
-- `system_prompt.md` — This file
+- `system_prompt.md` — This file (bundled inside `mos_compiled.md`; read from the knowledge file, not pasted separately)
 
 **Key:** The CLI layer that makes the OS interactive.
 
