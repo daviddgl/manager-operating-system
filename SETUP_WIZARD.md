@@ -339,7 +339,7 @@ If you prefer a single consolidated file instead of managing individual OS files
 
 > Run `scripts/bundle.sh` from the MOS repository root to generate `mos_compiled.md` containing all MOS content. Then:
 > 1. Upload `bundle/mos_compiled.md` to your AI platform as a knowledge file
-> 2. Paste `bootstrap_prompt.md` into Custom Instructions (static — paste once, never changes)
+> 2. Paste `00_BOOT/bootstrap_prompt.md` into Custom Instructions (static — paste once, never changes)
 > 3. Test with: `init_week`
 >
 > This works on all platforms (ChatGPT, Gemini, Claude) and provides the same functionality as individual files.
@@ -374,7 +374,7 @@ Items marked [TODO]: {count}
 
 Next Steps:
 1. Copy each file into your OS folder structure
-2. Paste `bootstrap_prompt.md` into your AI custom instructions (static — paste once, never changes)
+2. Paste `00_BOOT/bootstrap_prompt.md` into your AI custom instructions (static — paste once, never changes)
 3. Upload all files to your AI platform
 4. Type: init_week
 ```
@@ -414,7 +414,9 @@ When generating files, use these names (replace variables):
 | Template Name | Generated Name |
 |--------------|----------------|
 | `manager_operating_system.md` | `manager_operating_system - {name}.md` |
+| `manager_decision_protocol.md` | `manager_decision_protocol - {name}.md` |
 | `personal_dna.md` | `personal_dna - {name}.md` |
+| `company_operating_system.md` | `company_operating_system - {company}.md` |
 | `company_strategy.md` | `company_strategy - {quarter}.md` |
 | `team_operating_system.md` | `team_operating_system - {team_name}.md` |
 | `player_card - [Name].md` | `player_card - {person_name}.md` |

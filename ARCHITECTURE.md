@@ -382,7 +382,7 @@ You have two deployment options:
 ### Option 1: Individual Files (Default)
 
 Upload all MOS files separately:
-1. Upload files from `01_KERNEL/`, `02_CONFIG/`, `03_DRIVERS/`, `04_PROCESSES/`, `05_COMMANDS/` as knowledge files
+1. Upload files from `01_KERNEL/`, `02_CONFIG/`, `03_DRIVERS/`, `04_PROCESSES/`, `05_COMMANDS/`, `06_BOARDROOM/` as knowledge files
 2. Paste `05_COMMANDS/system_prompt.md` into Custom Instructions (static — paste once, rarely changes)
 3. Supported on: ChatGPT Projects, Claude Projects, and most AI platforms
 
@@ -397,7 +397,7 @@ scripts/bundle.sh
 This generates `bundle/mos_compiled.md` containing all MOS content in one file (including `system_prompt.md`). Then:
 
 1. Upload `bundle/mos_compiled.md` as a knowledge file
-2. Paste `bootstrap_prompt.md` into Custom Instructions (static — paste once, never changes)
+2. Paste `00_BOOT/bootstrap_prompt.md` into Custom Instructions (static — paste once, never changes)
 3. Works on all platforms (ChatGPT, Gemini, Claude, etc.)
 
 **Benefits of bundling:** Single file to manage, no file organization complexity, works on all platforms including those with file count worries.

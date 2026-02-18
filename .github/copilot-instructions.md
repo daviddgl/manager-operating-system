@@ -120,7 +120,7 @@ When manager changes teams/companies, they keep KERNEL + COMMANDS (the logic), b
 - The 15 commands in `05_COMMANDS/command_reference.md` each specify which files and sections they read — keep these in sync.
 - `SETUP_WIZARD.md` is a system prompt pasted into external AI tools — it must be self-contained and reference the current repo structure accurately.
 - `05_COMMANDS/system_prompt.md` is the master AI copilot instruction — it is **bundled inside `mos_compiled.md`** (not pasted separately). Changes here affect all command execution behavior.
-- `bootstrap_prompt.md` is the **static Custom Instructions text** — a tiny pointer telling the AI to load `system_prompt.md` from the bundle. It is version-independent and should almost never change.
+- `00_BOOT/bootstrap_prompt.md` is the **static Custom Instructions text** — a tiny pointer telling the AI to load `system_prompt.md` from the bundle. It is version-independent and should almost never change.
 - **ARCHITECTURE.md** is visual documentation for new manager users. When changing layer structure or adding/removing commands, update the 8 Mermaid diagrams to reflect the changes (especially diagrams 2, 3, 4, and 8).
 - Keep `00_BOOT/README.md` (narrative) and [ARCHITECTURE.md](../ARCHITECTURE.md) (visual) in sync — they should tell the same story from different angles.
 
