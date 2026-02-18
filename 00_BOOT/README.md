@@ -38,7 +38,7 @@ Prefer guided onboarding? Start with the root [SETUP_WIZARD.md](../SETUP_WIZARD.
 ├─────────────────────────────────────────────────────┤
 │  01_KERNEL (Portable — travels with you)             │
 │  ┌───────────────────────────────────────────────┐   │
-│  MOS                   → Philosophy,       │   │
+│  │ MOS                        → Philosophy,       │   │
 │  │                              Standards, Values │   │
 │  │ Decision Protocol          → Conflict          │   │
 │  │                              Resolution Logic  │   │
@@ -73,7 +73,7 @@ Quick lookup for all template files in your MOS:
 
 | File | Layer | Update Frequency | Purpose | Read By | Critical Sections |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| [personal_dna.md](../01_KERNEL/personal_dna.md) | KERNEL | Once (then review quarterly) | Your leadership identity, values, strengths, pressure triggers | All commands | §1–§6 (Identity, Pressure Mode detection) |
+| [personal_dna.md](../01_KERNEL/personal_dna.md) | KERNEL | Once (then review quarterly) | Your leadership identity, values, strengths, pressure triggers | All commands | §1–§7 (Identity, Pressure Mode detection) |
 | [manager_operating_system.md](../01_KERNEL/manager_operating_system.md) | KERNEL | Once (evolve over career) | Your personal playbook: decision protocols, leadership modes, capacity model | All commands | §1–§13 (Complete decision framework) |
 | [manager_decision_protocol.md](../01_KERNEL/manager_decision_protocol.md) | KERNEL | Once (refresh annually) | Conflict resolution logic, escalation matrix, Rule Zero | `stakeholder_request`, `escalate` | §0–§4 (Rule Zero, hierarchy, interaction rules, execution loops, decision speed) |
 | [company_operating_system.md](../02_CONFIG/company_operating_system.md) | CONFIG | When company changes | Company mission, values, non-negotiables, org structure | `init_week`, `prep_121`, `prep_planning` | §1–§2 (Identity & Purpose, Core Values) |
@@ -218,16 +218,16 @@ If you prefer a single consolidated file instead of managing individual OS files
 scripts/bundle.sh
 ```
 
-This generates a single `mos_compiled.md` file in `bundle/` containing all MOS content (including `system_prompt.md`). Upload this one file + paste `bootstrap_prompt.md` into Custom Instructions. Same functionality, simpler knowledge management.
+This generates a single `mos_compiled.md` file in `bundle/` containing all MOS content (including `system_prompt.md`). Upload this one file + paste `00_BOOT/bootstrap_prompt.md` into Custom Instructions. Same functionality, simpler knowledge management.
 
 **Platforms compared:**
 
-| Feature | ChatGPT Project | Gemini Gem |
-|---|---|---|
-| Knowledge files (OS docs) | ✅ Up to 20 files, 512MB each | ✅ Supports bundled single file |
-| Custom instructions | ✅ System Prompt (or Bootstrap Prompt for bundle) | ✅ System Prompt (or Bootstrap Prompt for bundle) |
-| Calendar integration | ❌ Must paste manually | ✅ Native Google Calendar |
-| Scheduling | ❌ Reactive only | ✅ Gemini Agent (experimental) |
+| Feature | ChatGPT Project | Gemini Gem | Claude Project |
+|---|---|---|---|
+| Knowledge files (OS docs) | ✅ Up to 20 files, 512MB each | ✅ Supports bundled single file | ✅ Project knowledge files |
+| Custom instructions | ✅ System Prompt (or Bootstrap Prompt for bundle) | ✅ System Prompt (or Bootstrap Prompt for bundle) | ✅ System Prompt (or Bootstrap Prompt for bundle) |
+| Calendar integration | ❌ Must paste manually | ✅ Native Google Calendar | ❌ Must paste manually |
+| Scheduling | ❌ Reactive only | ✅ Gemini Agent (experimental) | ❌ Reactive only |
 
 **Recommendation:** Use individual files for easier editing/updates, or use `scripts/bundle.sh` for simplified single-file deployment. Both approaches work on all platforms.
 

@@ -1,12 +1,12 @@
-> **Layer:** BOARDROOM
-> **Owner:** [Your Name]
-> **Version:** 2026.02
-> **Last Updated:** [YYYY-MM-DD]
+# Boardroom — [Your Name]
+
+> **Layer:** BOARDROOM  
+> **Owner:** [Your Name]  
+> **Version:** 2026.02  
+> **Last Updated:** [YYYY-MM-DD]  
 > **Portable:** Yes
 
 ---
-
-# Boardroom — [Your Name]
 
 ## §1 Boardroom Overview
 
