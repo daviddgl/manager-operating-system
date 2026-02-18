@@ -19,7 +19,7 @@ Created by **David Garcia Lopez**.
 1. Read [00_BOOT/README.md](00_BOOT/README.md) for architecture and portability rules
 2. **(Optional — Visual learner?)** See [ARCHITECTURE.md](ARCHITECTURE.md) for diagrams of how the OS layers connect, when each layer is consulted, and how data flows
 3. Run guided setup with [SETUP_WIZARD.md](SETUP_WIZARD.md)
-4. Load [05_COMMANDS/system_prompt.md](05_COMMANDS/system_prompt.md) into your AI custom instructions
+4. Load [bootstrap_prompt.md](bootstrap_prompt.md) into your AI custom instructions
 
 ---
 
@@ -35,7 +35,7 @@ Engineering managers make high-stakes decisions under pressure, often isolated, 
 - **CONFIG** — Company mission and strategy. Inherited context.
 - **DRIVERS** — Team-specific: squad, capacity, rituals. Swapped when you change teams.
 - **PROCESSES** — Current quarter's roadmap. Replaced quarterly.
-- **COMMANDS** — 14 named operations that run via AI copilots (ChatGPT / Gemini).
+- **COMMANDS** — 15 named operations that run via AI copilots (ChatGPT / Gemini).
 
 The key idea: **separate the logic (how you decide) from the data (where you work)**. The logic is portable. The data is replaceable.
 

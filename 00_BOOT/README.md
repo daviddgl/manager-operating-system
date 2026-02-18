@@ -218,14 +218,14 @@ If you prefer a single consolidated file instead of managing individual OS files
 scripts/bundle.sh
 ```
 
-This generates a single `mos_compiled.md` file in `bundle/` containing all MOS content. Upload this one file + paste `05_COMMANDS/system_prompt.md` into Custom Instructions. Same functionality, simpler knowledge management.
+This generates a single `mos_compiled.md` file in `bundle/` containing all MOS content (including `system_prompt.md`). Upload this one file + paste `bootstrap_prompt.md` into Custom Instructions. Same functionality, simpler knowledge management.
 
 **Platforms compared:**
 
 | Feature | ChatGPT Project | Gemini Gem |
 |---|---|---|
 | Knowledge files (OS docs) | ✅ Up to 20 files, 512MB each | ✅ Supports bundled single file |
-| Custom instructions | ✅ System Prompt | ✅ System Prompt |
+| Custom instructions | ✅ System Prompt (or Bootstrap Prompt for bundle) | ✅ System Prompt (or Bootstrap Prompt for bundle) |
 | Calendar integration | ❌ Must paste manually | ✅ Native Google Calendar |
 | Scheduling | ❌ Reactive only | ✅ Gemini Agent (experimental) |
 

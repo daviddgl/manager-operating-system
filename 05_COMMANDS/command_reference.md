@@ -1003,13 +1003,14 @@ If the user confirms bundle generation (or uses `--remote bundle`), after all mi
    - `03_DRIVERS/team_operating_system.md`, `player_card - [Name].md` (one per team member)
    - `04_PROCESSES/tactical_plan.md`
    - `05_COMMANDS/command_reference.md`
+   - `05_COMMANDS/system_prompt.md`
    - `06_BOARDROOM/boardroom.md`
 3. Wrap each file with: `<!-- SOURCE FILE: [relative_path] -->`
-4. **Do NOT include** `system_prompt.md` in the bundle (it is pasted into Custom Instructions / System Prompt separately)
+4. **Include** `system_prompt.md` in the bundle — it is read by the AI from the knowledge file (not pasted separately)
 5. Output the full bundle as a single code block
 6. Instruct the user: replace the existing `mos_compiled.md` knowledge file in their Gem/GPT/Project with this new bundle — no need to run `bundle.sh` manually
 
-> **Platform note:** If the generated bundle exceeds the platform's output limit, split into 2–3 parts with clear instructions on paste order. Always remind the user to also update their `system_prompt.md` in Custom Instructions if that file changed.
+> **Platform note:** If the generated bundle exceeds the platform's output limit, split into 2–3 parts with clear instructions on paste order. Remind the user that `bootstrap_prompt.md` in Custom Instructions stays unchanged — only the knowledge file needs replacing.
 
 ---
 
@@ -1143,12 +1144,12 @@ Next Monday: init_week → [references shutdown_week for carryover]
 
 ## Usage Instructions
 
-1. **Upload all OS files** to your AI platform (ChatGPT Project / Gemini Gem)
-2. **Paste `05_COMMANDS/system_prompt.md`** into Custom Instructions
+1. **Upload all OS files** to your AI platform (ChatGPT Project / Gemini Gem) — or use `scripts/bundle.sh` to compile into a single `mos_compiled.md`
+2. **Paste `bootstrap_prompt.md`** into Custom Instructions (static — paste once, never changes between versions)
 3. **Type command name** in conversation (e.g., `init_week`)
 4. **AI will:** read this reference → load OS files → ask for inputs → produce output
 5. **Store command outputs** in the session for chaining
 
 ---
 
-**Next:** See `system_prompt.md` for the master AI instructions.
+**Note:** Your full operating instructions (`system_prompt.md`) are bundled inside the knowledge files. `bootstrap_prompt.md` is the static pointer that tells the AI where to find them.

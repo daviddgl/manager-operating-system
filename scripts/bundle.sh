@@ -21,7 +21,7 @@
 #  Deployment:
 #    1. Run: scripts/bundle.sh
 #    2. Upload bundle/mos_compiled.md to your AI platform as a knowledge file
-#    3. Paste 05_COMMANDS/system_prompt.md into Custom Instructions (not as a file)
+#    3. Paste bootstrap_prompt.md into Custom Instructions (static — never changes)
 #    4. Test with: init_week
 
 set -e
@@ -94,7 +94,7 @@ add_file_to_bundle() {
   echo "- Layer 02: Company Context (Mission, Strategy)"
   echo "- Layer 03: Team Configuration (Team OS, Player Cards)"
   echo "- Layer 04: Current Processes (Tactical Plan)"
-  echo "- Layer 05: Command Reference (All 15 operations)"
+  echo "- Layer 05: Command Reference (All 15 operations) + System Prompt"
   echo "- Layer 06: Virtual Advisory Council (Boardroom Personas)"
   echo ""
   echo "To find specific content, search for: \`<!-- SOURCE FILE: [path] -->\`"
@@ -122,6 +122,7 @@ fi
 
 add_file_to_bundle "$REPO_ROOT/04_PROCESSES/tactical_plan.md"
 add_file_to_bundle "$REPO_ROOT/05_COMMANDS/command_reference.md"
+add_file_to_bundle "$REPO_ROOT/05_COMMANDS/system_prompt.md"
 add_file_to_bundle "$REPO_ROOT/06_BOARDROOM/boardroom.md"
 
 echo -e "${GREEN}✓ Bundle generation complete!${NC}"
@@ -140,6 +141,6 @@ fi
 echo ""
 echo -e "${YELLOW}Next steps:${NC}"
 echo "  1. Upload bundle/mos_compiled.md to your AI platform"
-echo "  2. Paste 05_COMMANDS/system_prompt.md into Custom Instructions"
+echo "  2. Paste bootstrap_prompt.md into Custom Instructions (static — paste once, never change)"
 echo "  3. Test with: init_week"
 echo ""
