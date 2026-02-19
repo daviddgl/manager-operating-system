@@ -22,48 +22,48 @@ Prefer guided onboarding? Start with the root [SETUP_WIZARD.md](../SETUP_WIZARD.
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│  05_COMMANDS (Interface — how to interact)           │
-│  ┌───────────────────────────────────────────────┐   │
-│  │ command_reference          → 15 named          │   │
-│  │                              operations        │   │
-│  │ system_prompt              → AI copilot        │   │
-│  │                              instructions      │   │
-│  └───────────────────────────────────────────┘   │
+│  05_COMMANDS (Interface — how to interact)          │
+│  ┌───────────────────────────────────────────────┐  │
+│  │ command_reference          → Named            │  │
+│  │                              operations       │  │
+│  │ system_prompt              → AI copilot       │  │
+│  │                              instructions     │  │
+│  └───────────────────────────────────────────────┘  │
 ├─────────────────────────────────────────────────────┤
-│  06_BOARDROOM (Portable — travels with you)          │
-│  ┌───────────────────────────────────────────┐   │
-│  │ boardroom                  → Virtual advisory  │   │
-│  │                              council personas   │   │
-│  └───────────────────────────────────────────────┘   │
+│  06_BOARDROOM (Portable — travels with you)         │
+│  ┌───────────────────────────────────────────────┐  │
+│  │ boardroom                  → Virtual advisory │  │
+│  │                              council personas │  │
+│  └───────────────────────────────────────────────┘  │
 ├─────────────────────────────────────────────────────┤
-│  01_KERNEL (Portable — travels with you)             │
-│  ┌───────────────────────────────────────────────┐   │
-│  │ MOS                        → Philosophy,       │   │
-│  │                              Standards, Values │   │
-│  │ Decision Protocol          → Conflict          │   │
-│  │                              Resolution Logic  │   │
-│  │ personal_dna               → Identity, Goals,  │   │
-│  │                              Constraints       │   │
-│  └───────────────────────────────────────────────┘   │
+│  01_KERNEL (Portable — travels with you)            │
+│  ┌────────────────────────────────────────────────┐ │
+│  │ MOS                        → Philosophy,       │ │
+│  │                              Standards, Values │ │
+│  │ Decision Protocol          → Conflict          │ │
+│  │                              Resolution Logic  │ │
+│  │ personal_dna               → Identity, Goals,  │ │
+│  │                              Constraints       │ │
+│  └────────────────────────────────────────────────┘ │
 ├─────────────────────────────────────────────────────┤
-│  02_CONFIG (Read Only — inherited from company)      │
-│  ┌───────────────────────────────────────────────┐   │
-│  │ company_operating_system   → Mission & Values  │   │
-│  │ company_strategy           → Current Goals     │   │
-│  └───────────────────────────────────────────────┘   │
+│  02_CONFIG (Read Only — inherited from company)     │
+│  ┌───────────────────────────────────────────────┐  │
+│  │ company_operating_system   → Mission & Values │  │
+│  │ company_strategy           → Current Goals    │  │
+│  └───────────────────────────────────────────────┘  │
 ├─────────────────────────────────────────────────────┤
-│  03_DRIVERS (Swappable — one per team)               │
-│  ┌───────────────────────────────────────────────┐   │
-│  │ team_operating_system      → Squad, Capacity,  │   │
-│  │                              Rituals, Partner  │   │
-│  │                              Teams             │   │
-│  │ Player Cards               → Individual specs  │   │
-│  └───────────────────────────────────────────────┘   │
+│  03_DRIVERS (Swappable — one per team)              │
+│  ┌───────────────────────────────────────────────┐  │
+│  │ team_operating_system      → Squad, Capacity, │  │
+│  │                              Rituals, Partner │  │
+│  │                              Teams            │  │
+│  │ Player Cards               → Individual specs │  │
+│  └───────────────────────────────────────────────┘  │
 ├─────────────────────────────────────────────────────┤
-│  04_PROCESSES (Ephemeral — replaced quarterly)       │
-│  ┌───────────────────────────────────────────────┐   │
-│  │ tactical_plan              → Current roadmap   │   │
-│  └───────────────────────────────────────────────┘   │
+│  04_PROCESSES (Ephemeral — replaced quarterly)      │
+│  ┌───────────────────────────────────────────────┐  │
+│  │ tactical_plan              → Current roadmap  │  │
+│  └───────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -101,7 +101,7 @@ Quick lookup for all template files in your MOS:
 When you run `prep_refresh` or `quarterly_reset` to refresh your files, update the `Last Updated` field:
 
 ```markdown
-> **Last Updated:** [Today's YYYY-MM-DD]
+> **Last Updated:** [YYYY-MM-DD]
 ```
 
 **Do NOT update** for minor edits (typos, small tweaks). Only update when doing a proper file refresh cycle (quarterly review or when `prep_refresh` flags files as stale).

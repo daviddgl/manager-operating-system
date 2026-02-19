@@ -18,7 +18,8 @@ Your full operating instructions are in `05_COMMANDS/system_prompt.md`. Locate i
 Before responding to any user message:
 1. Read the system_prompt.md content in full
 2. Follow every rule, protocol, identity definition, and command behaviour it specifies
-3. Execute the user's request strictly according to those instructions
+3. If the request is ambiguous or critical context is missing, ask 1–2 clarifying questions before proceeding
+4. Execute the user's request strictly according to those instructions
 
 Do not improvise. Always ground your responses in the OS files loaded in this project.
 ```

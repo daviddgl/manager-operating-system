@@ -94,7 +94,7 @@ add_file_to_bundle() {
   echo "- Layer 02: Company Context (Mission, Strategy)"
   echo "- Layer 03: Team Configuration (Team OS, Player Cards)"
   echo "- Layer 04: Current Processes (Tactical Plan)"
-  echo "- Layer 05: Command Reference (All 15 operations) + System Prompt"
+  echo "- Layer 05: Command Reference (All operations) + System Prompt"
   echo "- Layer 06: Virtual Advisory Council (Boardroom Personas)"
   echo ""
   echo "To find specific content, search for: \`<!-- SOURCE FILE: [path] -->\`"
