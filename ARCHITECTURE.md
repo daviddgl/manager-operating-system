@@ -36,7 +36,7 @@ graph TD
 - **02_CONFIG** — Your company's mission and strategy (changes when company changes)
 - **03_DRIVERS** — Your current team setup (changes when team changes)
 - **04_PROCESSES** — Your current quarter's plan (changes every quarter)
-- **05_COMMANDS** — The 15 operations that glue everything together via AI
+- **05_COMMANDS** — The operations that glue everything together via AI
 - **06_BOARDROOM** — Your virtual advisory council (permanent, portable — personas travel with you)
 
 ---
@@ -83,9 +83,9 @@ graph LR
     end
     
     subgraph External["🌐 DATA SOURCES (External Tools)"]
-        EXT1["Jira<br/>Tasks & Issues"]
-        EXT2["Airtable<br/>Roadmap & Strategy"]
-        EXT3["Slack<br/>Comms"]
+        EXT1["Tasks & Issues</br> (Ex. Jira)"]
+        EXT2["Roadmap & Strategy</br> (Ex. Airtable)"]
+        EXT3["Comms</br> (Ex. Slack)"]
     end
     
     K1 --> CMD1
@@ -250,7 +250,7 @@ graph TD
     
     subgraph Keep["✅ KEEP — Travels with you"]
         K["01_KERNEL<br/>Your philosophy<br/>Your decision rules<br/>Your personal DNA"]
-        C["05_COMMANDS<br/>Your 15 operations<br/>Command definitions"]
+        C["05_COMMANDS<br/>Your operations<br/>Command definitions"]
         B["06_BOARDROOM<br/>Your advisory council<br/>Persona definitions"]
     end
     
@@ -394,7 +394,7 @@ For simplified knowledge management, run the bundle script:
 scripts/bundle.sh
 ```
 
-This generates `bundle/mos_compiled.md` containing all MOS content in one file (including `system_prompt.md`). Then:
+This generates `bundle/mos_compiled.md` containing all MOS content in one file (including `command_reference.md` and `system_prompt.md`). Then:
 
 1. Upload `bundle/mos_compiled.md` as a knowledge file
 2. Paste `00_BOOT/bootstrap_prompt.md` into Custom Instructions (static — paste once, never changes)

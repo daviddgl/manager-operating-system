@@ -35,7 +35,7 @@ Engineering managers make high-stakes decisions under pressure, often isolated, 
 - **CONFIG** — Company mission and strategy. Inherited context.
 - **DRIVERS** — Team-specific: squad, capacity, rituals. Swapped when you change teams.
 - **PROCESSES** — Current quarter's roadmap. Replaced quarterly.
-- **COMMANDS** — 15 named operations that run via AI copilots (ChatGPT / Gemini / Claude).
+- **COMMANDS** — Named operations that run via AI copilots (ChatGPT / Gemini / Claude).
 
 The key idea: **separate the logic (how you decide) from the data (where you work)**. The logic is portable. The data is replaceable.
 
@@ -50,15 +50,16 @@ The key idea: **separate the logic (how you decide) from the data (where you wor
 3. Upload all MOS files from this repository
 4. Type **`start setup`** — the AI interviews you and generates your completed files
 5. Copy the generated files into your OS folder
-6. Type `init_week` and you're live
+6. Paste [05_COMMANDS/system_prompt.md](05_COMMANDS/system_prompt.md) into Custom Instructions (static — never changes)
+7. Type `init_week` and you're live
 
 ### Option B: Manual Setup
 
 1. Read [00_BOOT/README.md](00_BOOT/README.md) — architecture, portability contract, all protocols
 2. Fill in the `[bracket]` placeholders in each file (guided by `<!-- comments -->`)
 3. Upload all `.md` files to a **ChatGPT Project**, **Gemini Gem**, or **Claude Project**
-4. Paste [05_COMMANDS/system_prompt.md](05_COMMANDS/system_prompt.md) into custom instructions
-5. Type `init_week` and follow the AI's prompts
+4. Paste [05_COMMANDS/system_prompt.md](05_COMMANDS/system_prompt.md) into Custom Instructions (static — never changes)
+5. Type `init_week` and you're live
 
 ---
 
@@ -71,7 +72,7 @@ Manager Operating System/
 ├── 02_CONFIG/         # Company: mission, strategy
 ├── 03_DRIVERS/        # Team: squad, capacity, player cards
 ├── 04_PROCESSES/      # Quarter: tactical plan, risks
-├── 05_COMMANDS/       # Interface: 15 commands + AI system prompt
+├── 05_COMMANDS/       # Interface: commands + AI system prompt
 └── 06_BOARDROOM/      # Advisory council: portable persona definitions
 ```
 
