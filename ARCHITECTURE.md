@@ -375,35 +375,29 @@ When you run a command, it:
 
 ---
 
-## 9. Deploying to AI Platforms — Individual or Bundled Files
+## 9. Deploying to AI Platforms — Bundle-First
 
-You have two deployment options:
+Your OS is deployed as a single compiled bundle (`mos_compiled.md`). The Setup Wizard generates this file for you at the end of the interview. If you're setting up manually, run the bundle script.
 
-### Option 1: Individual Files (Default)
+### Standard Deployment (All Platforms)
 
-Upload all MOS files separately:
-1. Upload files from `01_KERNEL/`, `02_CONFIG/`, `03_DRIVERS/`, `04_PROCESSES/`, `05_COMMANDS/`, `06_BOARDROOM/` as knowledge files
-2. Paste `05_COMMANDS/system_prompt.md` into Custom Instructions (static — paste once, rarely changes)
-3. Supported on: ChatGPT Projects, Claude Projects, and most AI platforms
+1. **Run setup** → Get your completed `mos_compiled.md` (from the wizard or `scripts/bundle.sh`)
+2. **Upload** `mos_compiled.md` as a knowledge file in your AI platform
+3. **Paste** `00_BOOT/bootstrap_prompt.md` into Custom Instructions (static — paste once, never changes)
+4. Works identically on: ChatGPT Projects, Gemini Gems, Claude Projects
 
-### Option 2: Single Bundled File (Simplified)
+**The bundle** preserves all original file path references (e.g., `01_KERNEL/personal_dna.md`) as `<!-- SOURCE FILE: ... -->` markers, so all commands execute identically to an individual-file deployment.
 
-For simplified knowledge management, run the bundle script:
+### Updating Your OS
 
-```bash
-scripts/bundle.sh
+When you need to update a section (new team member, quarterly reset, etc.), ask your AI copilot. It reads your bundle, applies the change, and outputs a new complete `mos_compiled.md` to replace the old one.
+
 ```
-
-This generates `bundle/mos_compiled.md` containing all MOS content in one file (including `command_reference.md` and `system_prompt.md`). Then:
-
-1. Upload `bundle/mos_compiled.md` as a knowledge file
-2. Paste `00_BOOT/bootstrap_prompt.md` into Custom Instructions (static — paste once, never changes)
-3. Works on all platforms (ChatGPT, Gemini, Claude, etc.)
-
-**Benefits of bundling:** Single file to manage, no file organization complexity, works on all platforms including those with file count worries.
-
-The bundled format preserves original file path references (e.g., `01_KERNEL/personal_dna.md`), so commands execute identically to individual-file deployments.
+You: onboard [Name] to the team
+AI: [interviews you about the new team member]
+    → Outputs updated mos_compiled.md with new player card
+```
 
 ---
 
-**Next step:** Read [SETUP_WIZARD.md](SETUP_WIZARD.md) to begin filling in your personal OS.
+**Next step:** Open [templates/manager/SETUP_WIZARD.md](templates/manager/SETUP_WIZARD.md) alongside `templates/manager/mos_template.md` in your AI to begin your guided setup.

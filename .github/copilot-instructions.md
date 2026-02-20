@@ -20,7 +20,7 @@ The repository follows an OS-layer metaphor with numbered folders:
 | `05_COMMANDS/` | Interface | Permanent | Named AI commands + system prompt |
 | `06_BOARDROOM/` | Advisory council | Permanent | Virtual advisory council — portable persona definitions, travels with the manager |
 
-**Root folder** contains only repository metadata and onboarding entry docs (README, LICENSE, NOTICE, SETUP_WIZARD, ARCHITECTURE, CONTRIBUTING, etc.).
+**Root folder** contains only repository metadata and onboarding entry docs (README, LICENSE, NOTICE, ARCHITECTURE, CONTRIBUTING, etc.). Setup entry points live in `templates/` (e.g., `templates/manager/SETUP_WIZARD.md`).
 
 **Visual Documentation:** [ARCHITECTURE.md](../ARCHITECTURE.md) at root contains 8 Mermaid diagrams showing:
 - Layer hierarchy and information flow
@@ -50,7 +50,7 @@ All MOS files have two metadata fields:
 ## How the System Works — Complete Flow
 
 **Setup Phase (One-time):**
-1. Manager runs SETUP_WIZARD.md (a system prompt pasted into ChatGPT/Gemini)
+1. Manager runs `templates/manager/SETUP_WIZARD.md` (a system prompt pasted into ChatGPT/Gemini, alongside `templates/manager/mos_template.md`)
 2. Fills in KERNEL (personal philosophy), CONFIG (company), DRIVERS (team), PROCESSES (quarter)
 3. Uploads all MOS files to AI platform as a Knowledge Project or custom instructions
 
@@ -118,7 +118,7 @@ When manager changes teams/companies, they keep KERNEL + COMMANDS (the logic), b
 - Preserve the numbered folder structure (`00_` through `06_`).
 - Keep cross-references consistent: if you rename a section, update all files that reference it.
 - The commands in `05_COMMANDS/command_reference.md` each specify which files and sections they read — keep these in sync.
-- `SETUP_WIZARD.md` is a system prompt pasted into external AI tools — it must be self-contained and reference the current repo structure accurately.
+- `templates/manager/SETUP_WIZARD.md` is a system prompt pasted into external AI tools — it must be self-contained and reference the current repo structure accurately. The companion file `templates/manager/mos_template.md` is uploaded alongside it.
 - `05_COMMANDS/system_prompt.md` is the master AI copilot instruction — it is **bundled inside `mos_compiled.md`** (not pasted separately). Changes here affect all command execution behavior.
 - `00_BOOT/bootstrap_prompt.md` is the **static Custom Instructions text** — a tiny pointer telling the AI to load `system_prompt.md` from the bundle. It is version-independent and should almost never change.
 - **ARCHITECTURE.md** is visual documentation for new manager users. When changing layer structure or adding/removing commands, update the 8 Mermaid diagrams to reflect the changes (especially diagrams 2, 3, 4, and 8).

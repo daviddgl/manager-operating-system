@@ -2,6 +2,26 @@
 
 Thanks for your interest in improving Manager Operating System.
 
+## Development Setup
+
+After cloning, install the pre-commit hook to prevent template bundle drift:
+
+```bash
+cp scripts/hooks/pre-commit .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+```
+
+**What it does:** If you commit changes to any MOS source file (`00_BOOT/` through `06_BOARDROOM/`) without regenerating the template bundle, the hook will block the commit and tell you to run `scripts/bundle.sh` first.
+
+**When to regenerate the bundle:** Any time you change a source template file, run:
+
+```bash
+scripts/bundle.sh
+git add templates/manager/mos_template.md
+```
+
+This keeps `templates/manager/mos_template.md` (the blank template used by the Setup Wizard) in sync with the source files.
+
 ## How to contribute
 
 1. Fork the repository

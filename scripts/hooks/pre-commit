@@ -1,0 +1,98 @@
+#!/bin/bash
+
+# MOS Pre-commit Hook — Template Bundle Drift Detection
+#
+# Purpose: Ensures templates/manager/mos_template.md stays in sync with
+#          the MOS source template files (00_BOOT/ through 06_BOARDROOM/).
+#
+# If any source file is staged for commit but mos_template.md has NOT been
+# regenerated, this hook fails and tells you what to do.
+#
+# Install: This file is automatically active if present at .git/hooks/pre-commit
+# Permissions: chmod +x .git/hooks/pre-commit
+
+set -e
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+TEMPLATE_FILE="templates/manager/mos_template.md"
+TEMP_OUTPUT=$(mktemp)
+
+# Check if any MOS source files are staged
+SOURCE_PATTERNS=(
+  "00_BOOT/"
+  "01_KERNEL/"
+  "02_CONFIG/"
+  "03_DRIVERS/"
+  "04_PROCESSES/"
+  "05_COMMANDS/"
+  "06_BOARDROOM/"
+)
+
+staged_source_files=false
+for pattern in "${SOURCE_PATTERNS[@]}"; do
+  if git diff --cached --name-only | grep -q "^${pattern}"; then
+    staged_source_files=true
+    break
+  fi
+done
+
+# If no source files are staged, nothing to check
+if [ "$staged_source_files" = false ]; then
+  exit 0
+fi
+
+echo "🔍 MOS source files changed — checking template bundle sync..."
+
+# Generate a fresh bundle to a temp location for comparison
+cd "$REPO_ROOT"
+
+# Run bundle script silently to temp output
+{
+  bash scripts/bundle.sh > /dev/null 2>&1
+} || {
+  echo "❌ bundle.sh failed. Fix the error before committing."
+  rm -f "$TEMP_OUTPUT"
+  exit 1
+}
+
+# Compare the generated template to what's committed
+if ! diff -q "$REPO_ROOT/$TEMPLATE_FILE" "$REPO_ROOT/bundle/mos_compiled.md" > /dev/null 2>&1; then
+  echo ""
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo "❌  TEMPLATE BUNDLE OUT OF SYNC"
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo ""
+  echo "You changed MOS source files but templates/manager/mos_template.md"
+  echo "does not match the regenerated bundle."
+  echo ""
+  echo "Fix: Run the following, then re-stage and commit:"
+  echo ""
+  echo "  scripts/bundle.sh"
+  echo "  git add templates/manager/mos_template.md"
+  echo "  git commit"
+  echo ""
+  exit 1
+fi
+
+# If mos_template.md is not staged but it has changed on disk, remind the user
+if ! git diff --cached --name-only | grep -q "^${TEMPLATE_FILE}$"; then
+  if ! git diff --name-only | grep -q "^${TEMPLATE_FILE}$"; then
+    : # File unchanged on disk — nothing to do
+  else
+    echo ""
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "⚠️   TEMPLATE BUNDLE UPDATED — PLEASE STAGE IT"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo ""
+    echo "templates/manager/mos_template.md was updated by bundle.sh"
+    echo "but is not staged. Add it to this commit:"
+    echo ""
+    echo "  git add templates/manager/mos_template.md"
+    echo "  git commit --amend --no-edit"
+    echo ""
+    exit 1
+  fi
+fi
+
+echo "✅ Template bundle is in sync."
+exit 0
