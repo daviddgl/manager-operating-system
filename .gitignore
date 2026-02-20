@@ -8,7 +8,6 @@
 !LICENSE
 !NOTICE
 !CHANGELOG.md
-!SETUP_WIZARD.md
 !ARCHITECTURE.md
 !CONTACT.md
 !AUTHORS.md
@@ -19,6 +18,10 @@
 # Build and deployment scripts
 !scripts/
 !scripts/**
+
+# Setup templates (profession-specific wizards and blank template bundles)
+!templates/
+!templates/**
 
 # Publishable Manager Operating System structure
 !00_BOOT/

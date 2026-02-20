@@ -8,8 +8,9 @@
 #  Usage:
 #    scripts/bundle.sh
 #
-#  Output: Creates a single compiled markdown file in bundle/ directory:
-#    - mos_compiled.md (all OS layers in one file)
+#  Output: Creates two bundled files:
+#    - bundle/mos_compiled.md        (local dev artifact — git-ignored)
+#    - templates/manager/mos_template.md  (blank template committed to git — used during setup)
 #  
 #  How it works:
 #    - All source files are concatenated in layer order (00_BOOT → 05_COMMANDS)
@@ -30,6 +31,8 @@ set -e
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BUNDLE_DIR="$REPO_ROOT/bundle"
 OUTPUT_FILE="$BUNDLE_DIR/mos_compiled.md"
+TEMPLATE_DIR="$REPO_ROOT/templates/manager"
+TEMPLATE_OUTPUT="$TEMPLATE_DIR/mos_template.md"
 
 # Colors for output
 RED='\033[0;31m'
@@ -49,11 +52,15 @@ if [ ! -d "$REPO_ROOT/01_KERNEL" ]; then
   exit 1
 fi
 
-# Ensure bundle directory exists and remove only the compiled output file
+# Ensure output directories exist and remove only the compiled output files
 # (preserve any user-added files like notes or platform-specific artifacts in bundle/)
 mkdir -p "$BUNDLE_DIR"
+mkdir -p "$TEMPLATE_DIR"
 if [ -f "$OUTPUT_FILE" ]; then
   rm -f "$OUTPUT_FILE"
+fi
+if [ -f "$TEMPLATE_OUTPUT" ]; then
+  rm -f "$TEMPLATE_OUTPUT"
 fi
 
 echo -e "${BLUE}→ Compiling all MOS files into single bundle${NC}"
@@ -125,6 +132,9 @@ add_file_to_bundle "$REPO_ROOT/05_COMMANDS/command_reference.md"
 add_file_to_bundle "$REPO_ROOT/05_COMMANDS/system_prompt.md"
 add_file_to_bundle "$REPO_ROOT/06_BOARDROOM/boardroom.md"
 
+# Copy compiled bundle to templates/manager/mos_template.md (tracked in git as the blank template)
+cp "$OUTPUT_FILE" "$TEMPLATE_OUTPUT"
+
 echo -e "${GREEN}✓ Bundle generation complete!${NC}"
 echo ""
 echo "Summary:"
@@ -135,12 +145,19 @@ if [ -f "$OUTPUT_FILE" ]; then
   file_size=$(wc -c < "$OUTPUT_FILE")
   size_kb=$((file_size / 1024))
   line_count=$(wc -l < "$OUTPUT_FILE")
-  echo "  mos_compiled.md — ${size_kb} KB, ${line_count} lines"
+  echo "  bundle/mos_compiled.md        — ${size_kb} KB, ${line_count} lines (local dev, git-ignored)"
+fi
+if [ -f "$TEMPLATE_OUTPUT" ]; then
+  file_size=$(wc -c < "$TEMPLATE_OUTPUT")
+  size_kb=$((file_size / 1024))
+  line_count=$(wc -l < "$TEMPLATE_OUTPUT")
+  echo "  templates/manager/mos_template.md — ${size_kb} KB, ${line_count} lines (tracked in git)"
 fi
 
 echo ""
 echo -e "${YELLOW}Next steps:${NC}"
-echo "  1. Upload bundle/mos_compiled.md to your AI platform"
-echo "  2. Paste 00_BOOT/bootstrap_prompt.md into Custom Instructions (static — paste once, never change)"
-echo "  3. Test with: init_week"
+echo "  • For setup: templates/manager/mos_template.md is ready for the Setup Wizard flow"
+echo "  • For dev use: Upload bundle/mos_compiled.md to your AI platform"
+echo "  • Paste 00_BOOT/bootstrap_prompt.md into Custom Instructions (static — paste once, never change)"
+echo "  • Test with: init_week"
 echo ""

@@ -4,7 +4,7 @@ A portable decision-support system for engineering managers.
 
 Created by **David Garcia Lopez**.
 
-> **Root folder purpose:** repository metadata + onboarding entry docs. The operating system content lives in `00_BOOT` to `06_BOARDROOM`.
+> **Root folder purpose:** repository metadata + onboarding entry docs. The operating system content lives in `00_BOOT` to `06_BOARDROOM`. Setup files (profession-specific wizards + template bundles) live in `templates/`.
 
 - Contact: [CONTACT.md](CONTACT.md)
 - Author details: [AUTHORS.md](AUTHORS.md)
@@ -18,7 +18,7 @@ Created by **David Garcia Lopez**.
 
 1. Read [00_BOOT/README.md](00_BOOT/README.md) for architecture and portability rules
 2. **(Optional — Visual learner?)** See [ARCHITECTURE.md](ARCHITECTURE.md) for diagrams of how the OS layers connect, when each layer is consulted, and how data flows
-3. Run guided setup with [SETUP_WIZARD.md](SETUP_WIZARD.md)
+3. Run guided setup with [templates/manager/SETUP_WIZARD.md](templates/manager/SETUP_WIZARD.md)
 4. Load [00_BOOT/bootstrap_prompt.md](00_BOOT/bootstrap_prompt.md) into your AI custom instructions
 
 ---
@@ -46,20 +46,21 @@ The key idea: **separate the logic (how you decide) from the data (where you wor
 ### Option A: AI-Guided Setup (Recommended — ~45 min)
 
 1. Open ChatGPT (or Gemini / Claude)
-2. Paste [SETUP_WIZARD.md](SETUP_WIZARD.md) as the first message
-3. Upload all MOS files from this repository
-4. Type **`start setup`** — the AI interviews you and generates your completed files
-5. Copy the generated files into your OS folder
-6. Paste [05_COMMANDS/system_prompt.md](05_COMMANDS/system_prompt.md) into Custom Instructions (static — never changes)
-7. Type `init_week` and you're live
+2. Paste [templates/manager/SETUP_WIZARD.md](templates/manager/SETUP_WIZARD.md) as the first message
+3. Upload [templates/manager/mos_template.md](templates/manager/mos_template.md) alongside it
+4. Type **`start setup`** — the AI interviews you and fills the template
+5. Download your completed `mos_compiled.md` (the AI outputs it at the end)
+6. Paste [00_BOOT/bootstrap_prompt.md](00_BOOT/bootstrap_prompt.md) into Custom Instructions (static — never changes)
+7. Upload `mos_compiled.md` as your knowledge file, then type `init_week`
 
 ### Option B: Manual Setup
 
 1. Read [00_BOOT/README.md](00_BOOT/README.md) — architecture, portability contract, all protocols
 2. Fill in the `[bracket]` placeholders in each file (guided by `<!-- comments -->`)
-3. Upload all `.md` files to a **ChatGPT Project**, **Gemini Gem**, or **Claude Project**
-4. Paste [05_COMMANDS/system_prompt.md](05_COMMANDS/system_prompt.md) into Custom Instructions (static — never changes)
-5. Type `init_week` and you're live
+3. Run `scripts/bundle.sh` to generate your `bundle/mos_compiled.md`
+4. Upload `mos_compiled.md` to a **ChatGPT Project**, **Gemini Gem**, or **Claude Project**
+5. Paste [00_BOOT/bootstrap_prompt.md](00_BOOT/bootstrap_prompt.md) into Custom Instructions (static — never changes)
+6. Type `init_week` and you're live
 
 ---
 
@@ -73,7 +74,9 @@ Manager Operating System/
 ├── 03_DRIVERS/        # Team: squad, capacity, player cards
 ├── 04_PROCESSES/      # Quarter: tactical plan, risks
 ├── 05_COMMANDS/       # Interface: commands + AI system prompt
-└── 06_BOARDROOM/      # Advisory council: portable persona definitions
+├── 06_BOARDROOM/      # Advisory council: portable persona definitions
+└── templates/         # Setup entry points (per profession: wizard + blank template bundle)
+    └── manager/       # This profession — SETUP_WIZARD.md + mos_template.md
 ```
 
 ---
