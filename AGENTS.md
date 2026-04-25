@@ -30,7 +30,7 @@ The repo follows an OS-layer metaphor with numbered folders. **Preserve this str
 | [`05_COMMANDS/`](05_COMMANDS/) | Interface | Permanent | Named AI commands (`command_reference.md`) + master `system_prompt.md` |
 | [`06_BOARDROOM/`](06_BOARDROOM/) | Advisory council | Permanent | Virtual advisory council — portable persona definitions, travels with the manager |
 
-**Root folder** contains only repository metadata and onboarding entry docs ([README.md](README.md), [LICENSE](LICENSE), [NOTICE](NOTICE), [SETUP_WIZARD.md](SETUP_WIZARD.md), [ARCHITECTURE.md](ARCHITECTURE.md), [CONTRIBUTING.md](CONTRIBUTING.md), [CHANGELOG.md](CHANGELOG.md), [CONTACT.md](CONTACT.md), [AUTHORS.md](AUTHORS.md), this file).
+**Root folder** contains only repository metadata and onboarding entry docs ([README.md](README.md), [LICENSE](LICENSE), [NOTICE](NOTICE), [SETUP_WIZARD.md](SETUP_WIZARD.md), [ARCHITECTURE.md](ARCHITECTURE.md), [CONTRIBUTING.md](CONTRIBUTING.md), [CHANGELOG.md](CHANGELOG.md), [CONTACT.md](CONTACT.md), [AUTHORS.md](AUTHORS.md), [CLAUDE.md](CLAUDE.md), this file).
 
 **Visual reference:** [ARCHITECTURE.md](ARCHITECTURE.md) contains 8 Mermaid diagrams (layer hierarchy, system graph, weekly lifecycle, command details, data flow, portability, decision-protocol gates, quick reference). When you change layer structure or commands, update the affected diagrams (especially diagrams 2, 3, 4, 8) and keep [`00_BOOT/README.md`](00_BOOT/README.md) (narrative) in sync with ARCHITECTURE.md (visual).
 
@@ -160,16 +160,16 @@ When you edit any of these, update the others in the same PR — they cross-refe
 |----------------|--------------|
 | Layer structure (folders, file purposes) | [`00_BOOT/README.md`](00_BOOT/README.md), [`ARCHITECTURE.md`](ARCHITECTURE.md) (diagrams 1, 2, 6), [`README.md`](README.md), this file (§2) |
 | A command's name, inputs, files-read, or output format | [`05_COMMANDS/command_reference.md`](05_COMMANDS/command_reference.md), [`ARCHITECTURE.md`](ARCHITECTURE.md) (diagram 4 table), [`README.md`](README.md) commands table |
-| `manager_operating_system.md` section numbers | every command's "OS Files to Read" list in `command_reference.md`, the Critical Rules Enforcement table in `system_prompt.md`, [`ARCHITECTURE.md`](ARCHITECTURE.md) diagram 7 |
-| Capacity Contract, Pressure Mode, or Rule Zero behavior | `manager_operating_system.md`, `manager_decision_protocol.md`, `system_prompt.md` (Critical Rules table), [`00_BOOT/README.md`](00_BOOT/README.md) Key Protocols table |
-| Bundle assembly order or new layer file | [`scripts/bundle.sh`](scripts/bundle.sh), `version_upgrade` inline-bundle section in `command_reference.md`, [`ARCHITECTURE.md`](ARCHITECTURE.md) §9 |
-| Repository URL or remote-fetch URL | [`05_COMMANDS/system_prompt.md`](05_COMMANDS/system_prompt.md) "Repository URL" section, `version_upgrade` command in `command_reference.md` |
+| `01_KERNEL/manager_operating_system.md` section numbers | every command's "OS Files to Read" list in `05_COMMANDS/command_reference.md`, the Critical Rules Enforcement table in `05_COMMANDS/system_prompt.md`, [`ARCHITECTURE.md`](ARCHITECTURE.md) diagram 7 |
+| Capacity Contract, Pressure Mode, or Rule Zero behavior | `01_KERNEL/manager_operating_system.md`, `01_KERNEL/manager_decision_protocol.md`, `05_COMMANDS/system_prompt.md` (Critical Rules table), [`00_BOOT/README.md`](00_BOOT/README.md) Key Protocols table |
+| Bundle assembly order or new layer file | [`scripts/bundle.sh`](scripts/bundle.sh), `version_upgrade` inline-bundle section in `05_COMMANDS/command_reference.md`, [`ARCHITECTURE.md`](ARCHITECTURE.md) §9 |
+| Repository URL or remote-fetch URL | [`05_COMMANDS/system_prompt.md`](05_COMMANDS/system_prompt.md) "Repository URL" section, `version_upgrade` command in `05_COMMANDS/command_reference.md` |
 
 **Special files to know about:**
 
 - [`SETUP_WIZARD.md`](SETUP_WIZARD.md) — a system prompt pasted into external AI tools to guide first-time setup. Self-contained: it must reference current repo structure accurately. Update when adding/removing layers.
 - [`05_COMMANDS/system_prompt.md`](05_COMMANDS/system_prompt.md) — master AI copilot instruction. **Bundled inside `mos_compiled.md`**, not pasted separately. Changes here affect all command execution behavior.
-- [`00_BOOT/bootstrap_prompt.md`](00_BOOT/bootstrap_prompt.md) — the static Custom Instructions text. A tiny pointer telling the AI to load `system_prompt.md` from the bundle. **Version-independent — should almost never change.** Touch only if the `<!-- SOURCE FILE: -->` marker format itself changes.
+- [`00_BOOT/bootstrap_prompt.md`](00_BOOT/bootstrap_prompt.md) — the static Custom Instructions text. A tiny pointer telling the AI to load `05_COMMANDS/system_prompt.md` from the bundle. **Version-independent — should almost never change.** Touch only if the `<!-- SOURCE FILE: -->` marker format itself changes.
 - [`scripts/bundle.sh`](scripts/bundle.sh) — concatenates files in layer order with `<!-- SOURCE FILE: [path] -->` markers. If you add a new file in a layer that should ship in the bundle, add a corresponding `add_file_to_bundle` line.
 
 ---
